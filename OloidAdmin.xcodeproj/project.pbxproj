@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2DEB192D24815ED20047ACEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB192C24815ED20047ACEB /* AppDelegate.swift */; };
+		2DEB192F24815ED20047ACEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB192E24815ED20047ACEB /* SceneDelegate.swift */; };
+		2DEB193124815ED20047ACEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB193024815ED20047ACEB /* ContentView.swift */; };
+		2DEB193324815ED50047ACEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193224815ED50047ACEB /* Assets.xcassets */; };
+		2DEB193624815ED50047ACEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193524815ED50047ACEB /* Preview Assets.xcassets */; };
+		2DEB193924815ED50047ACEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193724815ED50047ACEB /* LaunchScreen.storyboard */; };
+		2DEB194424815ED50047ACEB /* OloidAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB194324815ED50047ACEB /* OloidAdminTests.swift */; };
+		2DEB194F24815ED50047ACEB /* OloidAdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB194E24815ED50047ACEB /* OloidAdminUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DEB194024815ED50047ACEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DEB192124815ED20047ACEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DEB192824815ED20047ACEB;
+			remoteInfo = OloidAdmin;
+		};
+		2DEB194B24815ED50047ACEB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DEB192124815ED20047ACEB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DEB192824815ED20047ACEB;
+			remoteInfo = OloidAdmin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2DEB192924815ED20047ACEB /* OloidAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OloidAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DEB192C24815ED20047ACEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2DEB192E24815ED20047ACEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2DEB193024815ED20047ACEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2DEB193224815ED50047ACEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DEB193524815ED50047ACEB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2DEB193824815ED50047ACEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2DEB193A24815ED50047ACEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DEB193F24815ED50047ACEB /* OloidAdminTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OloidAdminTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DEB194324815ED50047ACEB /* OloidAdminTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OloidAdminTests.swift; sourceTree = "<group>"; };
+		2DEB194524815ED50047ACEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DEB194A24815ED50047ACEB /* OloidAdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OloidAdminUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DEB194E24815ED50047ACEB /* OloidAdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OloidAdminUITests.swift; sourceTree = "<group>"; };
+		2DEB195024815ED50047ACEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DEB192624815ED20047ACEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB193C24815ED50047ACEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB194724815ED50047ACEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DEB192024815ED20047ACEB = {
+			isa = PBXGroup;
+			children = (
+				2DEB192B24815ED20047ACEB /* OloidAdmin */,
+				2DEB194224815ED50047ACEB /* OloidAdminTests */,
+				2DEB194D24815ED50047ACEB /* OloidAdminUITests */,
+				2DEB192A24815ED20047ACEB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2DEB192A24815ED20047ACEB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB192924815ED20047ACEB /* OloidAdmin.app */,
+				2DEB193F24815ED50047ACEB /* OloidAdminTests.xctest */,
+				2DEB194A24815ED50047ACEB /* OloidAdminUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DEB192B24815ED20047ACEB /* OloidAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB192C24815ED20047ACEB /* AppDelegate.swift */,
+				2DEB192E24815ED20047ACEB /* SceneDelegate.swift */,
+				2DEB193024815ED20047ACEB /* ContentView.swift */,
+				2DEB193224815ED50047ACEB /* Assets.xcassets */,
+				2DEB193724815ED50047ACEB /* LaunchScreen.storyboard */,
+				2DEB193A24815ED50047ACEB /* Info.plist */,
+				2DEB193424815ED50047ACEB /* Preview Content */,
+			);
+			path = OloidAdmin;
+			sourceTree = "<group>";
+		};
+		2DEB193424815ED50047ACEB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB193524815ED50047ACEB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2DEB194224815ED50047ACEB /* OloidAdminTests */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB194324815ED50047ACEB /* OloidAdminTests.swift */,
+				2DEB194524815ED50047ACEB /* Info.plist */,
+			);
+			path = OloidAdminTests;
+			sourceTree = "<group>";
+		};
+		2DEB194D24815ED50047ACEB /* OloidAdminUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB194E24815ED50047ACEB /* OloidAdminUITests.swift */,
+				2DEB195024815ED50047ACEB /* Info.plist */,
+			);
+			path = OloidAdminUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DEB192824815ED20047ACEB /* OloidAdmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DEB195324815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdmin" */;
+			buildPhases = (
+				2DEB192524815ED20047ACEB /* Sources */,
+				2DEB192624815ED20047ACEB /* Frameworks */,
+				2DEB192724815ED20047ACEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OloidAdmin;
+			productName = OloidAdmin;
+			productReference = 2DEB192924815ED20047ACEB /* OloidAdmin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2DEB193E24815ED50047ACEB /* OloidAdminTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DEB195624815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdminTests" */;
+			buildPhases = (
+				2DEB193B24815ED50047ACEB /* Sources */,
+				2DEB193C24815ED50047ACEB /* Frameworks */,
+				2DEB193D24815ED50047ACEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DEB194124815ED50047ACEB /* PBXTargetDependency */,
+			);
+			name = OloidAdminTests;
+			productName = OloidAdminTests;
+			productReference = 2DEB193F24815ED50047ACEB /* OloidAdminTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2DEB194924815ED50047ACEB /* OloidAdminUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DEB195924815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdminUITests" */;
+			buildPhases = (
+				2DEB194624815ED50047ACEB /* Sources */,
+				2DEB194724815ED50047ACEB /* Frameworks */,
+				2DEB194824815ED50047ACEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DEB194C24815ED50047ACEB /* PBXTargetDependency */,
+			);
+			name = OloidAdminUITests;
+			productName = OloidAdminUITests;
+			productReference = 2DEB194A24815ED50047ACEB /* OloidAdminUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DEB192124815ED20047ACEB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Tanvi Mittal";
+				TargetAttributes = {
+					2DEB192824815ED20047ACEB = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					2DEB193E24815ED50047ACEB = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 2DEB192824815ED20047ACEB;
+					};
+					2DEB194924815ED50047ACEB = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = 2DEB192824815ED20047ACEB;
+					};
+				};
+			};
+			buildConfigurationList = 2DEB192424815ED20047ACEB /* Build configuration list for PBXProject "OloidAdmin" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2DEB192024815ED20047ACEB;
+			productRefGroup = 2DEB192A24815ED20047ACEB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DEB192824815ED20047ACEB /* OloidAdmin */,
+				2DEB193E24815ED50047ACEB /* OloidAdminTests */,
+				2DEB194924815ED50047ACEB /* OloidAdminUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DEB192724815ED20047ACEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB193924815ED50047ACEB /* LaunchScreen.storyboard in Resources */,
+				2DEB193624815ED50047ACEB /* Preview Assets.xcassets in Resources */,
+				2DEB193324815ED50047ACEB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB193D24815ED50047ACEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB194824815ED50047ACEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DEB192524815ED20047ACEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB192D24815ED20047ACEB /* AppDelegate.swift in Sources */,
+				2DEB192F24815ED20047ACEB /* SceneDelegate.swift in Sources */,
+				2DEB193124815ED20047ACEB /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB193B24815ED50047ACEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB194424815ED50047ACEB /* OloidAdminTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DEB194624815ED50047ACEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DEB194F24815ED50047ACEB /* OloidAdminUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DEB194124815ED50047ACEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DEB192824815ED20047ACEB /* OloidAdmin */;
+			targetProxy = 2DEB194024815ED50047ACEB /* PBXContainerItemProxy */;
+		};
+		2DEB194C24815ED50047ACEB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DEB192824815ED20047ACEB /* OloidAdmin */;
+			targetProxy = 2DEB194B24815ED50047ACEB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2DEB193724815ED50047ACEB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DEB193824815ED50047ACEB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2DEB195124815ED50047ACEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2DEB195224815ED50047ACEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2DEB195424815ED50047ACEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OloidAdmin/Preview Content\"";
+				DEVELOPMENT_TEAM = JGSY4LMGX2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OloidAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.proxce.OloidAdmin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2DEB195524815ED50047ACEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"OloidAdmin/Preview Content\"";
+				DEVELOPMENT_TEAM = JGSY4LMGX2;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = OloidAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.proxce.OloidAdmin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2DEB195724815ED50047ACEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JGSY4LMGX2;
+				INFOPLIST_FILE = OloidAdminTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.proxce.OloidAdminTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OloidAdmin.app/OloidAdmin";
+			};
+			name = Debug;
+		};
+		2DEB195824815ED50047ACEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JGSY4LMGX2;
+				INFOPLIST_FILE = OloidAdminTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.proxce.OloidAdminTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OloidAdmin.app/OloidAdmin";
+			};
+			name = Release;
+		};
+		2DEB195A24815ED50047ACEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JGSY4LMGX2;
+				INFOPLIST_FILE = OloidAdminUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.proxce.OloidAdminUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OloidAdmin;
+			};
+			name = Debug;
+		};
+		2DEB195B24815ED50047ACEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JGSY4LMGX2;
+				INFOPLIST_FILE = OloidAdminUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.proxce.OloidAdminUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OloidAdmin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DEB192424815ED20047ACEB /* Build configuration list for PBXProject "OloidAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB195124815ED50047ACEB /* Debug */,
+				2DEB195224815ED50047ACEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DEB195324815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB195424815ED50047ACEB /* Debug */,
+				2DEB195524815ED50047ACEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DEB195624815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdminTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB195724815ED50047ACEB /* Debug */,
+				2DEB195824815ED50047ACEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DEB195924815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdminUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DEB195A24815ED50047ACEB /* Debug */,
+				2DEB195B24815ED50047ACEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2DEB192124815ED20047ACEB /* Project object */;
+}
