@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,8 +25,8 @@
 		2DEB197A24815F4A0047ACEB /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196D24815F4A0047ACEB /* WebService.swift */; };
 		2DEB197B24815F4A0047ACEB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196E24815F4A0047ACEB /* Request.swift */; };
 		2DEB197C24815F4A0047ACEB /* AdminUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB197024815F4A0047ACEB /* AdminUtility.swift */; };
-		2DEB197D24815F4A0047ACEB /* AdminConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB197124815F4A0047ACEB /* AdminConstants.swift */; };
 		2DEB198124823D510047ACEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB198024823D510047ACEB /* SceneDelegate.swift */; };
+		2DEB19832484EE440047ACEB /* AdminConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB19822484EE440047ACEB /* AdminConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +71,8 @@
 		2DEB196D24815F4A0047ACEB /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DEB196E24815F4A0047ACEB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		2DEB197024815F4A0047ACEB /* AdminUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUtility.swift; sourceTree = "<group>"; };
-		2DEB197124815F4A0047ACEB /* AdminConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminConstants.swift; sourceTree = "<group>"; };
 		2DEB198024823D510047ACEB /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
+		2DEB19822484EE440047ACEB /* AdminConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,8 +231,8 @@
 		2DEB196F24815F4A0047ACEB /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				2DEB19822484EE440047ACEB /* AdminConstants.swift */,
 				2DEB197024815F4A0047ACEB /* AdminUtility.swift */,
-				2DEB197124815F4A0047ACEB /* AdminConstants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -374,8 +374,8 @@
 				2DEB197B24815F4A0047ACEB /* Request.swift in Sources */,
 				2DEB192D24815ED20047ACEB /* AppDelegate.swift in Sources */,
 				2DEB197624815F4A0047ACEB /* AdminSettingsViewController.swift in Sources */,
+				2DEB19832484EE440047ACEB /* AdminConstants.swift in Sources */,
 				2DEB197C24815F4A0047ACEB /* AdminUtility.swift in Sources */,
-				2DEB197D24815F4A0047ACEB /* AdminConstants.swift in Sources */,
 				2DEB197724815F4A0047ACEB /* AdminLoginViewController.swift in Sources */,
 				2DEB197224815F4A0047ACEB /* ItemViewModel.swift in Sources */,
 				2DEB197524815F4A0047ACEB /* AdminListTypeViewController.swift in Sources */,
