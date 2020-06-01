@@ -77,24 +77,24 @@ class AdminSettingsViewController: UIViewController {
         
         self.activityIndicator.startAnimating()
         self.warningView.isHidden = true
-        self.dismissAdminKeyboard()
+        self.hideKeyboard()
         
         if endpointTextField.text != "" && appTypeTextField.text != "" && selectedAppId != "" {
             
             if let endpointName = self.endpointTextField.text,
                 let appId = selectedAppId {
-                adminAPIManager.pairEndPoint(endpointName: endpointName, appID: appId) { (adminUserRes, endpointRes, error) in
+                adminAPIManager.pairEndPoint(endpointName: endpointName, appID: appId) { (response, error) in
                     
                     DispatchQueue.main.async {
                         
-                        if error == nil {
+                        if response == "Success" {
                             
                             self.adminAPIManager.getAppConfig() { (response, error) in
                                 if response == "Success" {
-                                    if let adminUser = adminUserRes,
-                                    let endpoint = endpointRes {
-                                        self.callFirebaseWithCredentials(adminUser: adminUser, endpoint: endpoint)
-                                    }
+                                   
+                                    self.callFirebaseWithCredentials()
+                                    
+                                    
                                 }
                             }
                         }
@@ -115,9 +115,13 @@ class AdminSettingsViewController: UIViewController {
         }
     }
     
-    func callFirebaseWithCredentials(adminUser: AdminUser, endpoint: Endpoint) {
+    func callFirebaseWithCredentials() {
         
-        self.activityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+        }
+        
+        
           
         // TODO: Uncomment
         
@@ -314,4 +318,10 @@ extension AdminSettingsViewController : UITextFieldDelegate
         return true
     }
 
+}
+
+extension UIViewController {
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
 }

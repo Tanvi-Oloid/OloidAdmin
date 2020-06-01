@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminLoginViewController: UIViewController, UINavigationControllerDelegate {
+class AdminLoginViewController: UIViewController {
     
     var adminAPIManager = AdminAPIManager.init()
     var activeField: UITextField?
@@ -84,11 +84,20 @@ class AdminLoginViewController: UIViewController, UINavigationControllerDelegate
                         self.activityIndicator.stopAnimating()
                         if error == nil {
                            
-                            let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
-                            let vc = storyBoard.instantiateViewController(withIdentifier:"AdminSettingsViewController") as! AdminSettingsViewController
+//                            let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+//                            let vc = storyBoard.instantiateViewController(withIdentifier:"AdminSettingsViewController") as! AdminSettingsViewController
+//
+//                            Tabbar
+//
+//                            vc.idToken = response
+//
+//                            self.navigationController?.pushViewController(vc, animated: true)
                             
-                            vc.idToken = response
-                            self.navigationController?.delegate = self
+                            let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+                            let vc = storyBoard.instantiateViewController(withIdentifier:"Tabbar")
+                                                        
+                            //vc.idToken = response
+                            
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                         else {

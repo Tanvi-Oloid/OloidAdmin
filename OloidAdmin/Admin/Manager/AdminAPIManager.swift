@@ -12,10 +12,10 @@ class AdminAPIManager: NSObject {
     
     typealias asynAPIResults = (_ response:String,_ error:NSError?) -> Void
     typealias applicationAPIResults = (_ response:NSArray,_ idArray:NSArray, _ error:NSError?) -> Void
-    typealias pairAPIResults = (_ adminUserRes:AdminUser?, _ endpointRes: Endpoint?,_ error:NSError?) -> Void
+   // typealias pairAPIResults = (_ adminUserRes:AdminUser?, _ endpointRes: Endpoint?,_ error:NSError?) -> Void
     
     override init() {
-        // 
+        //
     }
     
     func callLoginAPI(tenantName:String, uName:String, password:String, completionHandler:@escaping asynAPIResults) {
@@ -149,7 +149,7 @@ class AdminAPIManager: NSObject {
         task.resume()
     }
     
-    func pairEndPoint(endpointName: String, appID: String,  completionHandler:@escaping pairAPIResults) {
+    func pairEndPoint(endpointName: String, appID: String,  completionHandler:@escaping asynAPIResults) {
         
         let jsonBody:[String:Any] = [
                 "EndpointName": endpointName,
@@ -206,27 +206,41 @@ class AdminAPIManager: NSObject {
                     let tenantName = dictionary["TenantName"] as! String
                     let tenantId = dictionary["TenantID"] as! String
                     
-                    UserDefaults.standard.set(pwd, forKey: "password")
-                    UserDefaults.standard.set(email, forKey: "email")
-                    UserDefaults.standard.set(userID, forKey: "userID")
-                    UserDefaults.standard.set(endpointID, forKey: "endpointID")
-                    UserDefaults.standard.set(appID, forKey: "appID")
-                    UserDefaults.standard.set(appName, forKey: "appName")
-                    UserDefaults.standard.set(tenantName, forKey: "tenantName")
-                    UserDefaults.standard.set(tenantId, forKey: "tenantID")
-                    
-                  // let adminUser = AdminUser.init(password: pwd,email: email,userID: userID,endpointID: endpointID,applicationID: appID,applicationName: appName,tenantName: tenantName,tenantId: tenantId)
+                    let defaults = UserDefaults.standard
                     
                     let user = User.init(password: pwd, email: email)
+                    
+                    do {
+                        let userData = try NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: false)
+                        defaults.set(userData, forKey: "user")
+                    } catch {
+                        print("Couldn't write file")
+                    }
+                    
+                    
                     let adminUser = AdminUser.init(tenantName: tenantName, tenantId: tenantId, password: pwd, email: email)
+                    
+                    do {
+                        let adminData = try NSKeyedArchiver.archivedData(withRootObject: adminUser, requiringSecureCoding: false)
+                        defaults.set(adminData, forKey: "adminUser")
+                    } catch {
+                        print("Couldn't write file")
+                    }
+                    
                     let endpoint = Endpoint.init(endpointId: endpointID, applicationId: appID, applicationName: appName, password: pwd, email: email)
                     
+                    do {
+                        let endpointData = try NSKeyedArchiver.archivedData(withRootObject: endpoint, requiringSecureCoding: false)
+                        defaults.set(endpointData, forKey: "endpoint")
+                    } catch {
+                        print("Couldn't write file")
+                    }
                     
-                    completionHandler(adminUser, endpoint, nil)
+                    completionHandler("Success", nil)
                 }
             }
             else {
-                completionHandler(nil, nil,nil)
+                completionHandler("Error", nil)
             }
         }
         task.resume()
@@ -280,44 +294,3 @@ class AdminAPIManager: NSObject {
         task.resume()
     }
 }
-
-class User: NSObject {
-    
-    var password: String?
-    var email: String?
-    
-    init(password: String, email: String) {
-        self.password = password
-        self.email = email
-    }
-}
-
-class AdminUser: User {
-
-    var tenantName: String?
-    var tenantId: String?
-    
-    init(tenantName: String, tenantId: String, password: String, email: String) {
-        
-        super.init(password: password , email: email)
-        self.tenantName = tenantName
-        self.tenantId = tenantId
-    }
-}
-
-class Endpoint: User {
-   
-    var endpointID: String?
-    var applicationID: String?
-    var applicationName: String?
-    
-    init(endpointId: String, applicationId: String, applicationName: String,password: String, email: String) {
-        
-        super.init(password: password , email: email)
-        self.endpointID = endpointId
-        self.applicationID = applicationId
-        self.applicationName = applicationName
-    }
-}
-
-
