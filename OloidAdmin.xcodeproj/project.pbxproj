@@ -3,18 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2DEB192D24815ED20047ACEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB192C24815ED20047ACEB /* AppDelegate.swift */; };
-		2DEB192F24815ED20047ACEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB192E24815ED20047ACEB /* SceneDelegate.swift */; };
 		2DEB193124815ED20047ACEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB193024815ED20047ACEB /* ContentView.swift */; };
 		2DEB193324815ED50047ACEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193224815ED50047ACEB /* Assets.xcassets */; };
 		2DEB193624815ED50047ACEB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193524815ED50047ACEB /* Preview Assets.xcassets */; };
 		2DEB193924815ED50047ACEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193724815ED50047ACEB /* LaunchScreen.storyboard */; };
 		2DEB194424815ED50047ACEB /* OloidAdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB194324815ED50047ACEB /* OloidAdminTests.swift */; };
 		2DEB194F24815ED50047ACEB /* OloidAdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB194E24815ED50047ACEB /* OloidAdminUITests.swift */; };
+		2DEB197224815F4A0047ACEB /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196024815F4A0047ACEB /* ItemViewModel.swift */; };
+		2DEB197324815F4A0047ACEB /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB196224815F4A0047ACEB /* Admin.storyboard */; };
+		2DEB197424815F4A0047ACEB /* AdminAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196424815F4A0047ACEB /* AdminAPIManager.swift */; };
+		2DEB197524815F4A0047ACEB /* AdminListTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196624815F4A0047ACEB /* AdminListTypeViewController.swift */; };
+		2DEB197624815F4A0047ACEB /* AdminSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196724815F4A0047ACEB /* AdminSettingsViewController.swift */; };
+		2DEB197724815F4A0047ACEB /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196824815F4A0047ACEB /* AdminLoginViewController.swift */; };
+		2DEB197824815F4A0047ACEB /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196A24815F4A0047ACEB /* Data.swift */; };
+		2DEB197924815F4A0047ACEB /* ServerPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196C24815F4A0047ACEB /* ServerPath.swift */; };
+		2DEB197A24815F4A0047ACEB /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196D24815F4A0047ACEB /* WebService.swift */; };
+		2DEB197B24815F4A0047ACEB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB196E24815F4A0047ACEB /* Request.swift */; };
+		2DEB197C24815F4A0047ACEB /* AdminUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB197024815F4A0047ACEB /* AdminUtility.swift */; };
+		2DEB197D24815F4A0047ACEB /* AdminConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB197124815F4A0047ACEB /* AdminConstants.swift */; };
+		2DEB198124823D510047ACEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB198024823D510047ACEB /* SceneDelegate.swift */; };
+		356D4EE78BE7683A769628B2 /* Pods_OloidAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B3F71FEA7E22845C5E9F868 /* Pods_OloidAdmin.framework */; };
+		62895A7E7F5207B2074E57DD /* Pods_OloidAdmin_OloidAdminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED848A362138E673E1ECD933 /* Pods_OloidAdmin_OloidAdminUITests.framework */; };
+		AA65DBE119C1736BB2528B23 /* Pods_OloidAdminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B8DB477EAECA6BB2428A0A /* Pods_OloidAdminTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B3F71FEA7E22845C5E9F868 /* Pods_OloidAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OloidAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B95FE77CD96CF117972CD09 /* Pods-OloidAdmin-OloidAdminUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OloidAdmin-OloidAdminUITests.debug.xcconfig"; path = "Target Support Files/Pods-OloidAdmin-OloidAdminUITests/Pods-OloidAdmin-OloidAdminUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2DEB192924815ED20047ACEB /* OloidAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OloidAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB192C24815ED20047ACEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2DEB192E24815ED20047ACEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2DEB193024815ED20047ACEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2DEB193224815ED50047ACEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DEB193524815ED50047ACEB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -49,6 +65,26 @@
 		2DEB194A24815ED50047ACEB /* OloidAdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OloidAdminUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB194E24815ED50047ACEB /* OloidAdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OloidAdminUITests.swift; sourceTree = "<group>"; };
 		2DEB195024815ED50047ACEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DEB196024815F4A0047ACEB /* ItemViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		2DEB196224815F4A0047ACEB /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
+		2DEB196424815F4A0047ACEB /* AdminAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAPIManager.swift; sourceTree = "<group>"; };
+		2DEB196624815F4A0047ACEB /* AdminListTypeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminListTypeViewController.swift; sourceTree = "<group>"; };
+		2DEB196724815F4A0047ACEB /* AdminSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminSettingsViewController.swift; sourceTree = "<group>"; };
+		2DEB196824815F4A0047ACEB /* AdminLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
+		2DEB196A24815F4A0047ACEB /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		2DEB196C24815F4A0047ACEB /* ServerPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerPath.swift; sourceTree = "<group>"; };
+		2DEB196D24815F4A0047ACEB /* WebService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		2DEB196E24815F4A0047ACEB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		2DEB197024815F4A0047ACEB /* AdminUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUtility.swift; sourceTree = "<group>"; };
+		2DEB197124815F4A0047ACEB /* AdminConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminConstants.swift; sourceTree = "<group>"; };
+		2DEB198024823D510047ACEB /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = SOURCE_ROOT; };
+		30B8DB477EAECA6BB2428A0A /* Pods_OloidAdminTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OloidAdminTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F97B542ECFED7780671D9AD /* Pods-OloidAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OloidAdmin.release.xcconfig"; path = "Target Support Files/Pods-OloidAdmin/Pods-OloidAdmin.release.xcconfig"; sourceTree = "<group>"; };
+		9F47252C796E2E6BBFA9D7E0 /* Pods-OloidAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OloidAdmin.debug.xcconfig"; path = "Target Support Files/Pods-OloidAdmin/Pods-OloidAdmin.debug.xcconfig"; sourceTree = "<group>"; };
+		C77632EB5EED66A4C39C38F4 /* Pods-OloidAdminTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OloidAdminTests.debug.xcconfig"; path = "Target Support Files/Pods-OloidAdminTests/Pods-OloidAdminTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E04626A56916EF768EAFCC40 /* Pods-OloidAdmin-OloidAdminUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OloidAdmin-OloidAdminUITests.release.xcconfig"; path = "Target Support Files/Pods-OloidAdmin-OloidAdminUITests/Pods-OloidAdmin-OloidAdminUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ED848A362138E673E1ECD933 /* Pods_OloidAdmin_OloidAdminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OloidAdmin_OloidAdminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F562AC2247A42CA593C1185C /* Pods-OloidAdminTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OloidAdminTests.release.xcconfig"; path = "Target Support Files/Pods-OloidAdminTests/Pods-OloidAdminTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				356D4EE78BE7683A769628B2 /* Pods_OloidAdmin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA65DBE119C1736BB2528B23 /* Pods_OloidAdminTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62895A7E7F5207B2074E57DD /* Pods_OloidAdmin_OloidAdminUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +118,13 @@
 		2DEB192024815ED20047ACEB = {
 			isa = PBXGroup;
 			children = (
+				2DEB195E24815F4A0047ACEB /* Admin */,
 				2DEB192B24815ED20047ACEB /* OloidAdmin */,
 				2DEB194224815ED50047ACEB /* OloidAdminTests */,
 				2DEB194D24815ED50047ACEB /* OloidAdminUITests */,
 				2DEB192A24815ED20047ACEB /* Products */,
+				76F438B27EFA3FBFA618DD1C /* Pods */,
+				58061179808EE31CA4A1AA9A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2DEB192C24815ED20047ACEB /* AppDelegate.swift */,
-				2DEB192E24815ED20047ACEB /* SceneDelegate.swift */,
+				2DEB198024823D510047ACEB /* SceneDelegate.swift */,
 				2DEB193024815ED20047ACEB /* ContentView.swift */,
 				2DEB193224815ED50047ACEB /* Assets.xcassets */,
 				2DEB193724815ED50047ACEB /* LaunchScreen.storyboard */,
@@ -136,6 +178,105 @@
 			path = OloidAdminUITests;
 			sourceTree = "<group>";
 		};
+		2DEB195E24815F4A0047ACEB /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB195F24815F4A0047ACEB /* ViewModel */,
+				2DEB196124815F4A0047ACEB /* Storyboard */,
+				2DEB196324815F4A0047ACEB /* Manager */,
+				2DEB196524815F4A0047ACEB /* ViewControllers */,
+				2DEB196924815F4A0047ACEB /* Model */,
+				2DEB196B24815F4A0047ACEB /* NetworkLayer */,
+				2DEB196F24815F4A0047ACEB /* Utility */,
+			);
+			name = Admin;
+			path = OloidAdmin/Admin;
+			sourceTree = "<group>";
+		};
+		2DEB195F24815F4A0047ACEB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB196024815F4A0047ACEB /* ItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2DEB196124815F4A0047ACEB /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB196224815F4A0047ACEB /* Admin.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2DEB196324815F4A0047ACEB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB196424815F4A0047ACEB /* AdminAPIManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2DEB196524815F4A0047ACEB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB196624815F4A0047ACEB /* AdminListTypeViewController.swift */,
+				2DEB196724815F4A0047ACEB /* AdminSettingsViewController.swift */,
+				2DEB196824815F4A0047ACEB /* AdminLoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2DEB196924815F4A0047ACEB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB196A24815F4A0047ACEB /* Data.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DEB196B24815F4A0047ACEB /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB196C24815F4A0047ACEB /* ServerPath.swift */,
+				2DEB196D24815F4A0047ACEB /* WebService.swift */,
+				2DEB196E24815F4A0047ACEB /* Request.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		2DEB196F24815F4A0047ACEB /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2DEB197024815F4A0047ACEB /* AdminUtility.swift */,
+				2DEB197124815F4A0047ACEB /* AdminConstants.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		58061179808EE31CA4A1AA9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2B3F71FEA7E22845C5E9F868 /* Pods_OloidAdmin.framework */,
+				ED848A362138E673E1ECD933 /* Pods_OloidAdmin_OloidAdminUITests.framework */,
+				30B8DB477EAECA6BB2428A0A /* Pods_OloidAdminTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		76F438B27EFA3FBFA618DD1C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F47252C796E2E6BBFA9D7E0 /* Pods-OloidAdmin.debug.xcconfig */,
+				8F97B542ECFED7780671D9AD /* Pods-OloidAdmin.release.xcconfig */,
+				2B95FE77CD96CF117972CD09 /* Pods-OloidAdmin-OloidAdminUITests.debug.xcconfig */,
+				E04626A56916EF768EAFCC40 /* Pods-OloidAdmin-OloidAdminUITests.release.xcconfig */,
+				C77632EB5EED66A4C39C38F4 /* Pods-OloidAdminTests.debug.xcconfig */,
+				F562AC2247A42CA593C1185C /* Pods-OloidAdminTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +284,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DEB195324815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdmin" */;
 			buildPhases = (
+				3F84FF1F8CE1C31FA2CDA8CA /* [CP] Check Pods Manifest.lock */,
 				2DEB192524815ED20047ACEB /* Sources */,
 				2DEB192624815ED20047ACEB /* Frameworks */,
 				2DEB192724815ED20047ACEB /* Resources */,
+				F3E1D20F46DE4CD20ADC2D65 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +303,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DEB195624815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdminTests" */;
 			buildPhases = (
+				551CEE67D60BCAD12D8085AC /* [CP] Check Pods Manifest.lock */,
 				2DEB193B24815ED50047ACEB /* Sources */,
 				2DEB193C24815ED50047ACEB /* Frameworks */,
 				2DEB193D24815ED50047ACEB /* Resources */,
@@ -178,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2DEB195924815ED50047ACEB /* Build configuration list for PBXNativeTarget "OloidAdminUITests" */;
 			buildPhases = (
+				D1D56DF8F69708389EB13FEF /* [CP] Check Pods Manifest.lock */,
 				2DEB194624815ED50047ACEB /* Sources */,
 				2DEB194724815ED50047ACEB /* Frameworks */,
 				2DEB194824815ED50047ACEB /* Resources */,
+				308762D5F3AC9293B335C656 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -240,6 +386,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DEB197324815F4A0047ACEB /* Admin.storyboard in Resources */,
 				2DEB193924815ED50047ACEB /* LaunchScreen.storyboard in Resources */,
 				2DEB193624815ED50047ACEB /* Preview Assets.xcassets in Resources */,
 				2DEB193324815ED50047ACEB /* Assets.xcassets in Resources */,
@@ -262,14 +409,128 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		308762D5F3AC9293B335C656 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OloidAdmin-OloidAdminUITests/Pods-OloidAdmin-OloidAdminUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OloidAdmin-OloidAdminUITests/Pods-OloidAdmin-OloidAdminUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OloidAdmin-OloidAdminUITests/Pods-OloidAdmin-OloidAdminUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F84FF1F8CE1C31FA2CDA8CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OloidAdmin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		551CEE67D60BCAD12D8085AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OloidAdminTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1D56DF8F69708389EB13FEF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OloidAdmin-OloidAdminUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3E1D20F46DE4CD20ADC2D65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OloidAdmin/Pods-OloidAdmin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OloidAdmin/Pods-OloidAdmin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OloidAdmin/Pods-OloidAdmin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2DEB192524815ED20047ACEB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DEB197A24815F4A0047ACEB /* WebService.swift in Sources */,
+				2DEB198124823D510047ACEB /* SceneDelegate.swift in Sources */,
+				2DEB197B24815F4A0047ACEB /* Request.swift in Sources */,
 				2DEB192D24815ED20047ACEB /* AppDelegate.swift in Sources */,
-				2DEB192F24815ED20047ACEB /* SceneDelegate.swift in Sources */,
+				2DEB197624815F4A0047ACEB /* AdminSettingsViewController.swift in Sources */,
+				2DEB197C24815F4A0047ACEB /* AdminUtility.swift in Sources */,
+				2DEB197D24815F4A0047ACEB /* AdminConstants.swift in Sources */,
+				2DEB197724815F4A0047ACEB /* AdminLoginViewController.swift in Sources */,
+				2DEB197224815F4A0047ACEB /* ItemViewModel.swift in Sources */,
+				2DEB197524815F4A0047ACEB /* AdminListTypeViewController.swift in Sources */,
+				2DEB197424815F4A0047ACEB /* AdminAPIManager.swift in Sources */,
+				2DEB197824815F4A0047ACEB /* Data.swift in Sources */,
 				2DEB193124815ED20047ACEB /* ContentView.swift in Sources */,
+				2DEB197924815F4A0047ACEB /* ServerPath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +693,7 @@
 		};
 		2DEB195424815ED50047ACEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F47252C796E2E6BBFA9D7E0 /* Pods-OloidAdmin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +714,7 @@
 		};
 		2DEB195524815ED50047ACEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F97B542ECFED7780671D9AD /* Pods-OloidAdmin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -472,6 +735,7 @@
 		};
 		2DEB195724815ED50047ACEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C77632EB5EED66A4C39C38F4 /* Pods-OloidAdminTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +758,7 @@
 		};
 		2DEB195824815ED50047ACEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F562AC2247A42CA593C1185C /* Pods-OloidAdminTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -516,6 +781,7 @@
 		};
 		2DEB195A24815ED50047ACEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B95FE77CD96CF117972CD09 /* Pods-OloidAdmin-OloidAdminUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -536,6 +802,7 @@
 		};
 		2DEB195B24815ED50047ACEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E04626A56916EF768EAFCC40 /* Pods-OloidAdmin-OloidAdminUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

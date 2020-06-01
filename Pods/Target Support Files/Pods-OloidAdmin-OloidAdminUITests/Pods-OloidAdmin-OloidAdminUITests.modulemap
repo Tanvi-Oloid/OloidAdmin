@@ -1,0 +1,6 @@
+framework module Pods_OloidAdmin_OloidAdminUITests {
+  umbrella header "Pods-OloidAdmin-OloidAdminUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
