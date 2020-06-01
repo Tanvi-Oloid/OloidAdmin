@@ -120,9 +120,7 @@ class AdminSettingsViewController: UIViewController {
         DispatchQueue.main.async {
             self.activityIndicator.stopAnimating()
         }
-        
-        
-          
+                  
         // TODO: Uncomment
         
 //        CICOFirebase.shared.adminLoginWithUser(adminUser: adminUser, endpoint: endpoint, completion: { [weak self] (error, String) in
@@ -136,6 +134,10 @@ class AdminSettingsViewController: UIViewController {
 //                self?.bringFormPopupView()
 //                self?.perform(#selector(self?.dismissPopupView), with: nil, afterDelay: 3.0)
 //                //self?.perform(#selector(self?.bringFormPopupView), with: nil, afterDelay: 2.0)
+//            }
+//            else {
+//                self?.warningView.isHidden = false
+//                self?.errorLabel.text = "There was an issue configuring the device. Please try again"
 //            }
 //
 //        })
@@ -171,6 +173,18 @@ class AdminSettingsViewController: UIViewController {
         if let endpointId = UserDefaults.standard.string(forKey: "endpointID") {
             endpointIDLabel.text = "EndpointID : " + endpointId
         }
+    }
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        
+        // TODO: Add code
+//        UserDefaults.standard.set("", forKey: "idToken")
+//
+//        if let vCtrls = self.navigationController?.viewControllers {
+//            let homeVC = vCtrls[1]
+//
+//            self.navigationController?.popToViewController(homeVC, animated: true)
+//        }
     }
     
     override func viewDidLoad() {

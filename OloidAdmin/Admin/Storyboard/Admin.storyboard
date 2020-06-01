@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="ipad11_0rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +21,7 @@
         <!--Admin Login View Controller-->
         <scene sceneID="Xup-XF-9jZ">
             <objects>
-                <viewController storyboardIdentifier="AdminLoginViewController" id="xkm-Wc-zXL" customClass="AdminLoginViewController" customModule="Oloid_Password_Reset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminLoginViewController" id="xkm-Wc-zXL" customClass="AdminLoginViewController" customModule="OloidAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9eU-Ld-fcq">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,7 +214,7 @@
         <!--Settings-->
         <scene sceneID="rhA-4P-nlq">
             <objects>
-                <viewController storyboardIdentifier="AdminSettingsViewController" id="1tj-hY-gm2" customClass="AdminSettingsViewController" customModule="Oloid_Password_Reset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminSettingsViewController" id="1tj-hY-gm2" customClass="AdminSettingsViewController" customModule="OloidAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d8o-jC-BMc">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +223,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="834" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j98-Pf-kJf">
-                                        <rect key="frame" x="30" y="30.5" width="127" height="44.5"/>
+                                        <rect key="frame" x="30" y="40" width="127" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="127" id="Lnh-vw-p2g"/>
                                         </constraints>
@@ -232,10 +231,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTS-kc-wLd">
+                                        <rect key="frame" x="704" y="39" width="100" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="NHq-b7-5te"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutAction:" destination="1tj-hY-gm2" eventType="touchUpInside" id="OmI-Fh-zqB"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.71834605929999995" green="0.82902032140000004" blue="0.91766029599999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="j98-Pf-kJf" firstAttribute="leading" secondItem="Cru-oX-V2X" secondAttribute="leading" constant="30" id="ECa-4h-XBV"/>
+                                    <constraint firstAttribute="trailing" secondItem="RTS-kc-wLd" secondAttribute="trailing" constant="30" id="IwS-U5-dul"/>
+                                    <constraint firstAttribute="bottom" secondItem="RTS-kc-wLd" secondAttribute="bottom" constant="5" id="VQh-Uj-beb"/>
                                     <constraint firstAttribute="height" constant="80" id="fdY-aC-ewl"/>
                                     <constraint firstAttribute="bottom" secondItem="j98-Pf-kJf" secondAttribute="bottom" constant="5" id="oPj-xD-uJI"/>
                                 </constraints>
@@ -562,7 +576,7 @@
         <!--Admin List Type View Controller-->
         <scene sceneID="gtk-Nr-505">
             <objects>
-                <viewController storyboardIdentifier="AdminListTypeViewController" id="bcK-Gm-Uod" customClass="AdminListTypeViewController" customModule="Oloid_Password_Reset" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminListTypeViewController" id="bcK-Gm-Uod" customClass="AdminListTypeViewController" customModule="OloidAdmin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FeT-47-id1">
                         <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -578,7 +592,7 @@
                                 <rect key="frame" x="0.0" y="80" width="834" height="1114"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdminListTypeCellIdentifier" rowHeight="100" id="i1S-AV-2BP" customClass="AdminListTypeCell" customModule="Oloid_Password_Reset" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AdminListTypeCellIdentifier" rowHeight="100" id="i1S-AV-2BP" customClass="AdminListTypeCell" customModule="OloidAdmin" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="834" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i1S-AV-2BP" id="Iq7-xd-aZC">
@@ -637,6 +651,7 @@
                 <tabBarController storyboardIdentifier="Tabbar" automaticallyAdjustsScrollViewInsets="NO" id="Ox5-0H-env" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o13-Ub-p0v">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
