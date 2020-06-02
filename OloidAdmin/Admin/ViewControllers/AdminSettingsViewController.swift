@@ -72,47 +72,69 @@ class AdminSettingsViewController: UIViewController {
     
     @IBAction func onPairButtonPressed(_ sender: Any) {
         
-        
-        //if let buttonTitle = sender.titlelabe
-        
-        self.activityIndicator.startAnimating()
-        self.warningView.isHidden = true
-        self.hideKeyboard()
-        
-        if endpointTextField.text != "" && appTypeTextField.text != "" && selectedAppId != "" {
+        if pairButton.currentTitle == "Unpair" {
+            clearAllFieldsOnUnpair()
+        }
+        else {
+            self.activityIndicator.startAnimating()
+            self.warningView.isHidden = true
+            self.hideKeyboard()
             
-            if let endpointName = self.endpointTextField.text,
-                let appId = selectedAppId {
-                adminAPIManager.pairEndPoint(endpointName: endpointName, appID: appId) { (response, error) in
-                    
-                    DispatchQueue.main.async {
+            if endpointTextField.text != "" && appTypeTextField.text != "" && selectedAppId != "" {
+                
+                if let endpointName = self.endpointTextField.text,
+                    let appId = selectedAppId {
+                    adminAPIManager.pairEndPoint(endpointName: endpointName, appID: appId) { (response, error) in
                         
-                        if response == "Success" {
+                        DispatchQueue.main.async {
                             
-                            self.adminAPIManager.getAppConfig() { (response, error) in
-                                if response == "Success" {
-                                   
-                                    self.callFirebaseWithCredentials()
-                                    
-                                    
+                            if response == "Success" {
+                                
+                                self.adminAPIManager.getAppConfig() { (response, error) in
+                                    if response == "Success" {
+                                       
+                                        self.callFirebaseWithCredentials()
+                                        
+                                        
+                                    }
                                 }
                             }
-                        }
-                        else {
-                            self.activityIndicator.stopAnimating()
-                            self.warningView.isHidden = false
-                            self.errorLabel.text = error?.localizedDescription
+                            else {
+                                self.activityIndicator.stopAnimating()
+                                self.warningView.isHidden = false
+                                self.errorLabel.text = error?.localizedDescription
+                            }
                         }
                     }
                 }
+                
             }
-            
+            else {
+                // show warning to enter all fields
+                self.warningView.isHidden = false
+                self.errorLabel.text = "Please enter all fields"
+            }
         }
-        else {
-            // show warning to enter all fields
-            self.warningView.isHidden = false
-            self.errorLabel.text = "Please enter all fields"
-        }
+    }
+    
+    func clearAllFieldsOnUnpair() {
+        
+        // TODO: CAll unpair end API
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "user")
+        defaults.removeObject(forKey: "endpoint")
+        
+        endpointTextField.alpha = 1.0
+        appTypeTextField.alpha = 1.0
+        endpointTextField.isUserInteractionEnabled = true
+        endpointTextField.text = ""
+        appTypeTextField.text = ""
+        selectAppButton.isUserInteractionEnabled = true
+        pairButton.setTitle("Pair", for: .normal)
+        endpointNameLabel.alpha = 1.0
+        applicationNameLabel.alpha = 1.0
+        endpointIDLabel.alpha = 1.0
+        endpointIDLabel.isHidden = true
     }
     
     func callFirebaseWithCredentials() {
