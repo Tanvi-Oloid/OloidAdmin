@@ -76,21 +76,17 @@
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2E-Qc-fu1">
-                                                <rect key="frame" x="241" y="715" width="352" height="70"/>
+                                                <rect key="frame" x="192" y="715" width="450" height="70"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="GFl-Er-Xfc">
-                                                        <rect key="frame" x="60" y="20" width="30" height="30"/>
+                                                        <rect key="frame" x="30" y="20" width="30" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="UYw-Oo-9Cr"/>
                                                             <constraint firstAttribute="height" constant="30" id="YWw-N4-Had"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect Credentials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-DT-0mk">
-                                                        <rect key="frame" x="105" y="17.5" width="200" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="200" id="8Hi-qL-aVb"/>
-                                                            <constraint firstAttribute="height" constant="35" id="fsD-MP-pAu"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="75" y="5" width="345" height="60"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.90638989209999998" green="0.26845395570000002" blue="0.2274149358" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -99,11 +95,13 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Yy3-DT-0mk" firstAttribute="leading" secondItem="GFl-Er-Xfc" secondAttribute="trailing" constant="15" id="0yz-fS-tGP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Yy3-DT-0mk" secondAttribute="trailing" constant="30" id="1Xg-tq-Zmr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Yy3-DT-0mk" secondAttribute="bottom" constant="5" id="20F-4c-0Yz"/>
                                                     <constraint firstItem="GFl-Er-Xfc" firstAttribute="centerY" secondItem="p2E-Qc-fu1" secondAttribute="centerY" id="429-Gh-vjb"/>
-                                                    <constraint firstItem="GFl-Er-Xfc" firstAttribute="leading" secondItem="p2E-Qc-fu1" secondAttribute="leading" constant="60" id="AYa-nA-7um"/>
-                                                    <constraint firstItem="Yy3-DT-0mk" firstAttribute="centerY" secondItem="p2E-Qc-fu1" secondAttribute="centerY" id="cFD-hl-vP0"/>
+                                                    <constraint firstItem="GFl-Er-Xfc" firstAttribute="leading" secondItem="p2E-Qc-fu1" secondAttribute="leading" constant="30" id="AYa-nA-7um"/>
                                                     <constraint firstAttribute="height" constant="70" id="i6p-rc-hBe"/>
-                                                    <constraint firstAttribute="width" constant="352" id="wWQ-ue-Djp"/>
+                                                    <constraint firstItem="Yy3-DT-0mk" firstAttribute="top" secondItem="p2E-Qc-fu1" secondAttribute="top" constant="5" id="voV-SZ-fk2"/>
+                                                    <constraint firstAttribute="width" constant="450" id="wWQ-ue-Djp"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfO-YP-11D">
@@ -172,6 +170,7 @@
                         <outlet property="constraintContentHeight" destination="ZvM-WL-ydC" id="EwO-Q5-H6b"/>
                         <outlet property="contentView" destination="aSt-6w-eAI" id="jU0-6g-OK0"/>
                         <outlet property="emailTextField" destination="PE2-99-z39" id="4O7-gT-84t"/>
+                        <outlet property="errorLabel" destination="Yy3-DT-0mk" id="fDN-n6-ASV"/>
                         <outlet property="loginButton" destination="bfO-YP-11D" id="aVY-hf-2H5"/>
                         <outlet property="loginScrollView" destination="ctR-6J-is6" id="xru-Y5-kr8"/>
                         <outlet property="nameTextField" destination="fHx-cw-ofd" id="CPl-dm-AB3"/>

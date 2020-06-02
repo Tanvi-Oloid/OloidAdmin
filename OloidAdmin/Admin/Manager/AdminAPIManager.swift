@@ -82,7 +82,14 @@ class AdminAPIManager: NSObject {
                 }
             }
             else {
-                completionHandler("error",nil)
+               if let responseJSON = responseData as? [String: Any]
+                {
+                    let msg =  responseJSON["message"] as! String
+                                        
+                    let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
+                    
+                    completionHandler("",error)
+                }
             }
         }
         task.resume()

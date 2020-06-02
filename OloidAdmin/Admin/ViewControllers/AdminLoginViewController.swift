@@ -23,6 +23,11 @@ class AdminLoginViewController: UIViewController {
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var loginScrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    var nameLength: Int = 0
+    var emailLength: Int = 0
+    var passwordLength: Int = 0
     
     @IBOutlet weak var constraintContentHeight: NSLayoutConstraint!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -35,13 +40,6 @@ class AdminLoginViewController: UIViewController {
         emailTextField.roundedWithGrayBorder()
         passwordTextField.roundedWithGrayBorder()
         loginButton.roundedCorners()
-//        loginButton.alpha = 0.5
-//        loginButton.isUserInteractionEnabled = false
-        
-        
-        self.nameTextField.text = "uber"
-        self.emailTextField.text = "shankar@oloid.ai"
-        self.passwordTextField.text = "Oloid@123"
 
         // Do any additional setup after loading the view.
     }
@@ -67,6 +65,7 @@ class AdminLoginViewController: UIViewController {
         let email =  self.emailTextField.text
         let pwd =  self.passwordTextField.text
         
+        warningView.isHidden = true
         activityIndicator.startAnimating()
         
         let isEmailValid = isValidEmail(testStr: self.emailTextField.text ?? "")
@@ -83,15 +82,6 @@ class AdminLoginViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.activityIndicator.stopAnimating()
                         if error == nil {
-                           
-//                            let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
-//                            let vc = storyBoard.instantiateViewController(withIdentifier:"AdminSettingsViewController") as! AdminSettingsViewController
-//
-//                            Tabbar
-//
-//                            vc.idToken = response
-//
-//                            self.navigationController?.pushViewController(vc, animated: true)
                             
                             let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
                             let vc = storyBoard.instantiateViewController(withIdentifier:"Tabbar")
@@ -101,7 +91,8 @@ class AdminLoginViewController: UIViewController {
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                         else {
-                            
+                            self.warningView.isHidden = false
+                            self.errorLabel.text = error?.localizedDescription
                         }
                     }
                 }
@@ -114,12 +105,6 @@ class AdminLoginViewController: UIViewController {
         let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
-    
-//    func keyboardWillShow(notification: NSNotification) {
-//        if keyboardHeight != nil {
-//            return
-//        }
-//    }
 
 }
 extension AdminLoginViewController : UITextFieldDelegate
@@ -139,11 +124,6 @@ extension AdminLoginViewController : UITextFieldDelegate
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-       // handleLoginButtonInteraction(textField: textField, range: range, string: string)
-        
-        var nameLength: Int = 0
-        var emailLength: Int = 0
-        var passwordLength: Int = 0
         
         if textField.tag == 100 {
             let currentCharacterCount = nameTextField.text?.count ?? 0
@@ -154,11 +134,11 @@ extension AdminLoginViewController : UITextFieldDelegate
             
             //let newLength = currentCharacterCount + string.count - range.length
             
-            let newLength = getTextLength(textField: nameTextField, range: range, string: string)
+            nameLength = getTextLength(textField: nameTextField, range: range, string: string)
             
-            nameLength = newLength
+            //nameLength = newLength
             // Handling UI
-            if newLength == 0 {
+            if nameLength == 0 {
                 self.nameTextField.roundedWithGrayBorder()
             }
             else {
@@ -167,13 +147,11 @@ extension AdminLoginViewController : UITextFieldDelegate
             //return newLength <= 30
         }
         else if textField.tag == 101 {
-//            let currentCharacterCount = emailTextField.text?.count ?? 0
-//            let newLength = currentCharacterCount + string.count - range.length
             
-            let newLength = getTextLength(textField: emailTextField, range: range, string: string)
-            emailLength = newLength
+            emailLength = getTextLength(textField: emailTextField, range: range, string: string)
+            
             // Handling UI
-            if newLength == 0 {
+            if emailLength == 0 {
                 self.emailTextField.roundedWithGrayBorder()
             }
             else {
@@ -181,29 +159,25 @@ extension AdminLoginViewController : UITextFieldDelegate
             }
         }
         else if textField.tag == 102 {
+                        
+            passwordLength = getTextLength(textField: passwordTextField, range: range, string: string)
             
-//            let currentCharacterCount = passwordTextField.text?.count ?? 0
-//            let newLength = currentCharacterCount + string.count - range.length
-            
-            let newLength = getTextLength(textField: passwordTextField, range: range, string: string)
-            
-            passwordLength = newLength
             // Handling UI
-            if newLength == 0 {
+            if passwordLength == 0 {
                 self.passwordTextField.roundedWithGrayBorder()
             }
             else {
                 self.passwordTextField.roundedWithBlueBorder()
             }
         }
-//        if nameLength > 0 && emailLength > 0 && passwordLength > 0 {
-//            loginButton.alpha = 1.0
-//            loginButton.isUserInteractionEnabled = true
-//        }
-//        else {
-//            loginButton.alpha = 0.5
-//            loginButton.isUserInteractionEnabled = false
-//        }
+        if nameLength > 0 && emailLength > 0 && passwordLength > 0 {
+            loginButton.alpha = 1.0
+            loginButton.isUserInteractionEnabled = true
+        }
+        else {
+            loginButton.alpha = 0.5
+            loginButton.isUserInteractionEnabled = false
+        }
         
         return true
     }
@@ -213,32 +187,6 @@ extension AdminLoginViewController : UITextFieldDelegate
         let newLength = currentCharacterCount + string.count - range.length
         return newLength
     }
-    
-//    func handleLoginButtonInteraction(textField: UITextField, range: NSRange,string: String) {
-//
-//        var name: Int = 0
-//        var email: Int = 0
-//        var password: Int = 0
-//
-//        if textField.tag == 100 {
-//            name = getTextLength(textField: nameTextField, range: range, string: string)
-//        }
-//        else if textField.tag == 101 {
-//            email = getTextLength(textField: emailTextField, range: range, string: string)
-//        }
-//        else if textField.tag == 102 {
-//            password = getTextLength(textField: passwordTextField, range: range, string: string)
-//        }
-//
-//        if name != 0 && email != 0 && password != 0 {
-//            loginButton.alpha = 1.0
-//            loginButton.isUserInteractionEnabled = true
-//        }
-//        else {
-//            loginButton.alpha = 0.5
-//            loginButton.isUserInteractionEnabled = false
-//        }
-//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
