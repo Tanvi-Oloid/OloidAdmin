@@ -300,4 +300,64 @@ class AdminAPIManager: NSObject {
         }
         task.resume()
     }
+    
+    func deleteEndpointAPi(completionHandler:@escaping asynAPIResults) {
+        
+        let defaults = UserDefaults.standard
+        guard let endpointData = defaults.object(forKey: "endpoint") as? Data else {
+            return
+        }
+        guard let endpoint = NSKeyedUnarchiver.unarchiveObject(with: endpointData) as? Endpoint else {
+            return
+        }
+        
+        if let endpointId = endpoint.endpointID {
+            
+            guard let url = URL(string: AdminConstants.AdminUrlConstants.kDeleteEndpointApiUrl + "/" + (endpointId)) else
+            {
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            
+            //request.httpBody = jsonData
+            request.httpMethod = "DELETE"
+            
+            let autorization = UserDefaults.standard.string(forKey: "idToken")
+            
+            request.setValue(autorization, forHTTPHeaderField:"Authorization")
+            
+            request.timeoutInterval = 5.0
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseData = try? JSONSerialization.jsonObject(with: data, options: [])
+                
+                let httpResponse = response as! HTTPURLResponse
+                
+                let statusCode = httpResponse.statusCode
+                
+                if statusCode == Int(200) || statusCode == Int(201) {
+                    
+                    completionHandler("Success",nil)
+                    
+                }
+                else {
+                    if let responseJSON = responseData as? [String: Any]
+                    {
+                        let msg =  responseJSON["message"] as! String
+                        
+                        let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
+                        
+                        completionHandler("",error)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
 }

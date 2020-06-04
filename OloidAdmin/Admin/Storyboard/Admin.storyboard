@@ -182,34 +182,6 @@
             </objects>
             <point key="canvasLocation" x="-119.42446043165468" y="126.63316582914572"/>
         </scene>
-        <!--People-->
-        <scene sceneID="hiw-5b-4kS">
-            <objects>
-                <viewController id="BAe-7K-nvf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uVd-jv-KWO">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhP-lc-Vhm">
-                                <rect key="frame" x="327.5" y="579.5" width="179.5" height="35"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="yhP-lc-Vhm" firstAttribute="centerX" secondItem="uVd-jv-KWO" secondAttribute="centerX" id="TQb-jm-2LM"/>
-                            <constraint firstItem="yhP-lc-Vhm" firstAttribute="centerY" secondItem="uVd-jv-KWO" secondAttribute="centerY" id="TX0-lw-YEn"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="7zp-af-Aly"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="People" id="HVG-zh-Pt5"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jJh-LA-gO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1488" y="-593"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="rhA-4P-nlq">
             <objects>
@@ -413,7 +385,7 @@
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-Cc-cvs">
-                                <rect key="frame" x="217" y="612" width="400" height="60"/>
+                                <rect key="frame" x="192" y="612" width="450" height="60"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="txh-eI-Ude">
                                         <rect key="frame" x="15" y="15" width="30" height="30"/>
@@ -423,7 +395,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMT-oE-Xqm">
-                                        <rect key="frame" x="55" y="0.0" width="345" height="60"/>
+                                        <rect key="frame" x="55" y="0.0" width="395" height="60"/>
                                         <fontDescription key="fontDescription" name="Heebo-Regular" family="Heebo" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -434,9 +406,11 @@
                                     <constraint firstItem="AMT-oE-Xqm" firstAttribute="leading" secondItem="txh-eI-Ude" secondAttribute="trailing" constant="10" id="6a3-IA-IdA"/>
                                     <constraint firstItem="txh-eI-Ude" firstAttribute="centerY" secondItem="3f5-Cc-cvs" secondAttribute="centerY" id="8fX-Ah-rhS"/>
                                     <constraint firstAttribute="trailing" secondItem="AMT-oE-Xqm" secondAttribute="trailing" id="Ddl-ZZ-6xp"/>
+                                    <constraint firstAttribute="width" constant="450" id="Hsp-pc-YiO"/>
                                     <constraint firstItem="txh-eI-Ude" firstAttribute="leading" secondItem="3f5-Cc-cvs" secondAttribute="leading" constant="15" id="K8S-Ns-qHf"/>
                                     <constraint firstAttribute="height" constant="60" id="MWR-TI-B6u"/>
                                     <constraint firstItem="AMT-oE-Xqm" firstAttribute="top" secondItem="3f5-Cc-cvs" secondAttribute="top" id="Mvi-MT-eS1"/>
+                                    <constraint firstItem="AMT-oE-Xqm" firstAttribute="centerY" secondItem="3f5-Cc-cvs" secondAttribute="centerY" id="blW-os-SSm"/>
                                     <constraint firstAttribute="bottom" secondItem="AMT-oE-Xqm" secondAttribute="bottom" id="pGj-1u-u0b"/>
                                 </constraints>
                             </view>
@@ -467,6 +441,7 @@
                             <constraint firstItem="Cru-oX-V2X" firstAttribute="leading" secondItem="3ku-LI-xIc" secondAttribute="leading" id="Orm-uJ-Bp0"/>
                             <constraint firstItem="LIm-Iw-zuX" firstAttribute="leading" secondItem="4Eg-dM-e1g" secondAttribute="leading" id="PkO-wj-3YW"/>
                             <constraint firstItem="3f5-Cc-cvs" firstAttribute="top" secondItem="LIm-Iw-zuX" secondAttribute="bottom" constant="25" id="Pnc-zt-BvC"/>
+                            <constraint firstItem="3f5-Cc-cvs" firstAttribute="centerX" secondItem="d8o-jC-BMc" secondAttribute="centerX" id="Qi9-9C-71g"/>
                             <constraint firstItem="3ku-LI-xIc" firstAttribute="trailing" secondItem="HkV-kC-fgj" secondAttribute="trailing" constant="367" id="RL8-J6-68B"/>
                             <constraint firstItem="K8G-Nf-0de" firstAttribute="centerX" secondItem="d8o-jC-BMc" secondAttribute="centerX" id="Sy1-Gw-zu4"/>
                             <constraint firstItem="R6l-jr-hDi" firstAttribute="top" secondItem="LIm-Iw-zuX" secondAttribute="bottom" constant="150" id="TQx-Tp-N1h"/>
@@ -476,10 +451,8 @@
                             <constraint firstItem="4Eg-dM-e1g" firstAttribute="top" secondItem="HkV-kC-fgj" secondAttribute="bottom" constant="20" id="agd-u0-l8f"/>
                             <constraint firstItem="MCR-3q-UNm" firstAttribute="centerX" secondItem="d8o-jC-BMc" secondAttribute="centerX" id="b2B-nU-vSo"/>
                             <constraint firstItem="bRj-CH-UnM" firstAttribute="centerY" secondItem="4UZ-jO-5dh" secondAttribute="centerY" id="bGN-u2-J7V"/>
-                            <constraint firstItem="3f5-Cc-cvs" firstAttribute="trailing" secondItem="4Eg-dM-e1g" secondAttribute="trailing" id="cLL-m0-4CK"/>
                             <constraint firstItem="LIm-Iw-zuX" firstAttribute="trailing" secondItem="4Eg-dM-e1g" secondAttribute="trailing" id="eE6-Uw-DeL"/>
                             <constraint firstItem="W05-Va-I7Z" firstAttribute="leading" secondItem="4UZ-jO-5dh" secondAttribute="leading" id="eR8-xg-ILQ"/>
-                            <constraint firstItem="3f5-Cc-cvs" firstAttribute="leading" secondItem="4Eg-dM-e1g" secondAttribute="leading" id="eiN-SS-ujK"/>
                             <constraint firstItem="bRj-CH-UnM" firstAttribute="trailing" secondItem="4UZ-jO-5dh" secondAttribute="trailing" constant="-10" id="fK3-5r-Woe"/>
                             <constraint firstItem="K8G-Nf-0de" firstAttribute="centerY" secondItem="d8o-jC-BMc" secondAttribute="centerY" constant="120" id="gII-GD-GiC"/>
                             <constraint firstItem="BNW-5v-hPF" firstAttribute="centerX" secondItem="d8o-jC-BMc" secondAttribute="centerX" id="iz8-N1-23r"/>
@@ -514,35 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEe-gU-Stl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1494" y="127"/>
-        </scene>
-        <!--Profile-->
-        <scene sceneID="N36-1R-a3N">
-            <objects>
-                <viewController id="buZ-9Z-QeQ" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Acg-w3-KuR">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1194"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ki-Sn-MPk">
-                                <rect key="frame" x="327.5" y="579.5" width="179.5" height="35"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="7ki-Sn-MPk" firstAttribute="centerX" secondItem="Acg-w3-KuR" secondAttribute="centerX" id="Cp1-XC-vq1"/>
-                            <constraint firstItem="7ki-Sn-MPk" firstAttribute="centerY" secondItem="Acg-w3-KuR" secondAttribute="centerY" id="RLU-m0-WNs"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="PC5-u8-tkM"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="BHd-pe-P3f"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Odx-kq-JJa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="676" y="864"/>
+            <point key="canvasLocation" x="1600" y="-143"/>
         </scene>
         <!--Add-->
         <scene sceneID="9fk-T4-jlD">
@@ -572,7 +517,7 @@
             </objects>
             <point key="canvasLocation" x="1488" y="864"/>
         </scene>
-        <!--Admin List Type View Controller-->
+        <!--Item-->
         <scene sceneID="gtk-Nr-505">
             <objects>
                 <viewController storyboardIdentifier="AdminListTypeViewController" id="bcK-Gm-Uod" customClass="AdminListTypeViewController" customModule="OloidAdmin" customModuleProvider="target" sceneMemberID="viewController">
@@ -635,6 +580,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q0C-N8-JY2"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="lST-AX-gxi"/>
                     <connections>
                         <outlet property="tableView" destination="eQ1-JK-7EM" id="cIM-yL-bMC"/>
                         <outlet property="topView" destination="IYm-mc-mdL" id="xoC-Yd-geE"/>
@@ -642,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FD-3G-kiW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302" y="127"/>
+            <point key="canvasLocation" x="712" y="968"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2ME-0a-msF">
@@ -657,8 +603,7 @@
                     <connections>
                         <segue destination="1tj-hY-gm2" kind="relationship" relationship="viewControllers" id="3cV-9C-Swu"/>
                         <segue destination="n5h-gg-WJG" kind="relationship" relationship="viewControllers" id="Mdn-xD-PXX"/>
-                        <segue destination="BAe-7K-nvf" kind="relationship" relationship="viewControllers" id="18x-Kd-pyE"/>
-                        <segue destination="buZ-9Z-QeQ" kind="relationship" relationship="viewControllers" id="JH3-ef-9Bo"/>
+                        <segue destination="bcK-Gm-Uod" kind="relationship" relationship="viewControllers" id="fbJ-Ot-XGO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hhp-yH-y79" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

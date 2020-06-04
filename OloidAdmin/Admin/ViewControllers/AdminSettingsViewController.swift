@@ -119,22 +119,32 @@ class AdminSettingsViewController: UIViewController {
     
     func clearAllFieldsOnUnpair() {
         
-        // TODO: CAll unpair end API
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "user")
-        defaults.removeObject(forKey: "endpoint")
+        // Call unpair endpoint API
         
-        endpointTextField.alpha = 1.0
-        appTypeTextField.alpha = 1.0
-        endpointTextField.isUserInteractionEnabled = true
-        endpointTextField.text = ""
-        appTypeTextField.text = ""
-        selectAppButton.isUserInteractionEnabled = true
-        pairButton.setTitle("Pair", for: .normal)
-        endpointNameLabel.alpha = 1.0
-        applicationNameLabel.alpha = 1.0
-        endpointIDLabel.alpha = 1.0
-        endpointIDLabel.isHidden = true
+        adminAPIManager.deleteEndpointAPi { (response, error) in
+            
+            if response == "Success" {
+                let defaults = UserDefaults.standard
+                defaults.removeObject(forKey: "user")
+                defaults.removeObject(forKey: "endpoint")
+                
+                self.endpointTextField.alpha = 1.0
+                self.appTypeTextField.alpha = 1.0
+                self.endpointTextField.isUserInteractionEnabled = true
+                self.endpointTextField.text = ""
+                self.appTypeTextField.text = ""
+                self.selectAppButton.isUserInteractionEnabled = true
+                self.pairButton.setTitle("Pair", for: .normal)
+                self.endpointNameLabel.alpha = 1.0
+                self.applicationNameLabel.alpha = 1.0
+                self.endpointIDLabel.alpha = 1.0
+                self.endpointIDLabel.isHidden = true
+            }
+            else {
+                self.warningView.isHidden = false
+                self.errorLabel.text = error?.localizedDescription
+            }
+        }
     }
     
     func callFirebaseWithCredentials() {

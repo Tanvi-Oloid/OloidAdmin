@@ -40,6 +40,20 @@ class AdminLoginViewController: UIViewController {
         emailTextField.roundedWithGrayBorder()
         passwordTextField.roundedWithGrayBorder()
         loginButton.roundedCorners()
+        
+        let defaults = UserDefaults.standard
+        guard let adminData = defaults.object(forKey: "adminUser") as? Data else {
+            return
+        }
+        guard let adminUser = NSKeyedUnarchiver.unarchiveObject(with: adminData) as? AdminUser else {
+            return
+        }
+                
+        if let tenantName = adminUser.tenantName {
+            self.nameTextField.text = tenantName
+            nameLength = self.nameTextField.text?.count ?? 0
+            nameTextField.roundedWithBlueBorder()
+        }
 
         // Do any additional setup after loading the view.
     }
