@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2DE9E54A248DFB8A004D2911 /* AdminAddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E549248DFB8A004D2911 /* AdminAddUserViewController.swift */; };
 		2DE9E54C248DFB8F004D2911 /* AdminUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E54B248DFB8F004D2911 /* AdminUserProfileViewController.swift */; };
-		2DE9E54E248DFC8B004D2911 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE9E54D248DFC8B004D2911 /* Admin.storyboard */; };
 		2DE9E560248DFF44004D2911 /* FaceErrorPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E559248DFF44004D2911 /* FaceErrorPopUpView.swift */; };
 		2DE9E561248DFF44004D2911 /* BadPicturePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E55A248DFF44004D2911 /* BadPicturePopUpView.swift */; };
 		2DE9E562248DFF44004D2911 /* BadgePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E55B248DFF44004D2911 /* BadgePopUpView.swift */; };
@@ -24,6 +23,7 @@
 		2DE9E572248DFF58004D2911 /* PunchInPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE9E56B248DFF58004D2911 /* PunchInPopUpView.xib */; };
 		2DE9E573248DFF58004D2911 /* AddUserPopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE9E56C248DFF58004D2911 /* AddUserPopUpView.xib */; };
 		2DE9E574248DFF59004D2911 /* BadgePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DE9E56D248DFF58004D2911 /* BadgePopUpView.xib */; };
+		2DE9E576248E225F004D2911 /* Admin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE9E575248E225F004D2911 /* Admin.storyboard */; };
 		2DEB192D24815ED20047ACEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB192C24815ED20047ACEB /* AppDelegate.swift */; };
 		2DEB193124815ED20047ACEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEB193024815ED20047ACEB /* ContentView.swift */; };
 		2DEB193324815ED50047ACEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEB193224815ED50047ACEB /* Assets.xcassets */; };
@@ -65,7 +65,6 @@
 /* Begin PBXFileReference section */
 		2DE9E549248DFB8A004D2911 /* AdminAddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAddUserViewController.swift; sourceTree = "<group>"; };
 		2DE9E54B248DFB8F004D2911 /* AdminUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserProfileViewController.swift; sourceTree = "<group>"; };
-		2DE9E54D248DFC8B004D2911 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Admin.storyboard; path = ../../../../CurrentRepo_Firestore/Admin/Storyboard/Admin.storyboard; sourceTree = "<group>"; };
 		2DE9E559248DFF44004D2911 /* FaceErrorPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceErrorPopUpView.swift; sourceTree = "<group>"; };
 		2DE9E55A248DFF44004D2911 /* BadPicturePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadPicturePopUpView.swift; sourceTree = "<group>"; };
 		2DE9E55B248DFF44004D2911 /* BadgePopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgePopUpView.swift; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		2DE9E56B248DFF58004D2911 /* PunchInPopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PunchInPopUpView.xib; sourceTree = "<group>"; };
 		2DE9E56C248DFF58004D2911 /* AddUserPopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddUserPopUpView.xib; sourceTree = "<group>"; };
 		2DE9E56D248DFF58004D2911 /* BadgePopUpView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgePopUpView.xib; sourceTree = "<group>"; };
+		2DE9E575248E225F004D2911 /* Admin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Admin.storyboard; sourceTree = "<group>"; };
 		2DEB192924815ED20047ACEB /* OloidAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OloidAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEB192C24815ED20047ACEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DEB193024815ED20047ACEB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		2DEB196124815F4A0047ACEB /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				2DE9E54D248DFC8B004D2911 /* Admin.storyboard */,
+				2DE9E575248E225F004D2911 /* Admin.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -405,10 +405,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DE9E54E248DFC8B004D2911 /* Admin.storyboard in Resources */,
 				2DEB193924815ED50047ACEB /* LaunchScreen.storyboard in Resources */,
 				2DE9E573248DFF58004D2911 /* AddUserPopUpView.xib in Resources */,
 				2DE9E56F248DFF58004D2911 /* BadPicturePopUpView.xib in Resources */,
+				2DE9E576248E225F004D2911 /* Admin.storyboard in Resources */,
 				2DE9E56E248DFF58004D2911 /* FaceErrorPopUpView.xib in Resources */,
 				2DEB193624815ED50047ACEB /* Preview Assets.xcassets in Resources */,
 				2DE9E571248DFF58004D2911 /* GoodPicturePopUpView.xib in Resources */,
