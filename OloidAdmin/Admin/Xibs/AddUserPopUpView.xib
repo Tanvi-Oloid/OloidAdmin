@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Heebo-Regular.ttf">
+            <string>Heebo-Regular</string>
+        </array>
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddUserPopUpview" customModule="Oloid_Password_Reset" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddUserPopUpview" customModule="Oloid_Password_Reset" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="580"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD A NEW USER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWd-Qk-Q7k">
+                    <rect key="frame" x="50" y="20" width="178.5" height="27.5"/>
+                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rlz-m2-I2a">
+                    <rect key="frame" x="0.0" y="65.5" width="400" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="GhP-3M-x7a"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" tag="61" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcT-XZ-tQY">
+                    <rect key="frame" x="23" y="101.5" width="354" height="50"/>
+                    <color key="backgroundColor" red="0.94118279220000001" green="0.94116514920000005" blue="0.94117718939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="AOk-WD-T5x"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="DPl-h4-obz"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special characters are not allowed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feU-tD-aue">
+                    <rect key="frame" x="50" y="153.5" width="300" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Szr-EK-rf0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" tag="62" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First and Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7e-hh-fOl">
+                    <rect key="frame" x="23" y="214.5" width="354" height="50"/>
+                    <color key="backgroundColor" red="0.94118279220000001" green="0.94116514920000005" blue="0.94117718939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fPs-P8-Vre"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="epN-eo-e6p"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Only alphabets are allowed and must have at least one space between First &amp; Last name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyi-Ue-9PZ">
+                    <rect key="frame" x="50" y="266.5" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="FMZ-8y-6lG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" tag="62" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Collection Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QNB-X2-qVQ">
+                    <rect key="frame" x="23" y="335" width="354" height="50"/>
+                    <color key="backgroundColor" red="0.94118279220000001" green="0.94116514920000005" blue="0.94117718939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="lPb-Vy-K11"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="pW6-B2-8rR"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipp-j4-EhD">
+                    <rect key="frame" x="23" y="455" width="354" height="40"/>
+                    <color key="backgroundColor" red="0.2004782259" green="0.46143299339999999" blue="0.96475428340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="iWx-vR-Zvc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
+                    <state key="normal" title="NEXT">
+                        <color key="titleColor" red="0.94118279220000001" green="0.94116514920000005" blue="0.94117718939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="nextButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="P1E-yR-fA9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4H-eM-XQh">
+                    <rect key="frame" x="23" y="515" width="354" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="guU-eo-XSn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="20"/>
+                    <state key="normal" title="CANCEL">
+                        <color key="titleColor" red="0.2004782259" green="0.46143299339999999" blue="0.96475428340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="dUA-bn-CKm"/>
+                    </connections>
+                </button>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="wGx-Dr-14U">
+                    <rect key="frame" x="190" y="425" width="20" height="20"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aj2-Co-20M">
+                    <rect key="frame" x="23" y="393" width="354" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Eig-Q8-b0O"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Heebo-Regular" family="Heebo" pointSize="12"/>
+                    <color key="textColor" red="0.90638989209999998" green="0.26845395570000002" blue="0.2274149358" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="QNB-X2-qVQ" firstAttribute="trailing" secondItem="h7e-hh-fOl" secondAttribute="trailing" id="28c-aW-mB8"/>
+                <constraint firstItem="Rlz-m2-I2a" firstAttribute="top" secondItem="OWd-Qk-Q7k" secondAttribute="bottom" constant="18" id="4Tr-kE-f61"/>
+                <constraint firstItem="Aj2-Co-20M" firstAttribute="top" secondItem="QNB-X2-qVQ" secondAttribute="bottom" constant="8" id="5dc-FZ-DqL"/>
+                <constraint firstItem="Rlz-m2-I2a" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AK9-e3-c8Y"/>
+                <constraint firstItem="0Nf-Xf-Z7S" firstAttribute="trailing" secondItem="RcT-XZ-tQY" secondAttribute="trailing" constant="23" id="AUr-jv-TAJ"/>
+                <constraint firstItem="wGx-Dr-14U" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="B4W-tq-9jZ"/>
+                <constraint firstItem="h7e-hh-fOl" firstAttribute="trailing" secondItem="RcT-XZ-tQY" secondAttribute="trailing" id="Du1-JW-iOw"/>
+                <constraint firstItem="Nyi-Ue-9PZ" firstAttribute="trailing" secondItem="feU-tD-aue" secondAttribute="trailing" id="Dwa-B0-RD6"/>
+                <constraint firstItem="Nyi-Ue-9PZ" firstAttribute="top" secondItem="h7e-hh-fOl" secondAttribute="bottom" constant="2" id="HMc-9A-R3S"/>
+                <constraint firstAttribute="trailing" secondItem="Rlz-m2-I2a" secondAttribute="trailing" id="IRc-pd-PZo"/>
+                <constraint firstItem="h7e-hh-fOl" firstAttribute="top" secondItem="feU-tD-aue" secondAttribute="bottom" constant="40" id="Ppa-49-OKP"/>
+                <constraint firstItem="Aj2-Co-20M" firstAttribute="leading" secondItem="QNB-X2-qVQ" secondAttribute="leading" id="T9a-kV-lBt"/>
+                <constraint firstItem="e4H-eM-XQh" firstAttribute="leading" secondItem="ipp-j4-EhD" secondAttribute="leading" id="Uev-xW-KGU"/>
+                <constraint firstItem="ipp-j4-EhD" firstAttribute="top" secondItem="QNB-X2-qVQ" secondAttribute="bottom" constant="70" id="XXr-3W-hrC"/>
+                <constraint firstItem="Aj2-Co-20M" firstAttribute="trailing" secondItem="QNB-X2-qVQ" secondAttribute="trailing" id="Ywn-sb-MSe"/>
+                <constraint firstItem="e4H-eM-XQh" firstAttribute="top" secondItem="ipp-j4-EhD" secondAttribute="bottom" constant="20" id="cEf-tT-doA"/>
+                <constraint firstItem="RcT-XZ-tQY" firstAttribute="leading" secondItem="0Nf-Xf-Z7S" secondAttribute="leading" constant="23" id="cuX-WS-iu6"/>
+                <constraint firstItem="0Nf-Xf-Z7S" firstAttribute="trailing" secondItem="feU-tD-aue" secondAttribute="trailing" constant="50" id="dkF-Db-e6S"/>
+                <constraint firstItem="RcT-XZ-tQY" firstAttribute="top" secondItem="Rlz-m2-I2a" secondAttribute="bottom" constant="35" id="eIv-E4-AR0"/>
+                <constraint firstItem="ipp-j4-EhD" firstAttribute="top" secondItem="wGx-Dr-14U" secondAttribute="bottom" constant="10" id="ftD-du-UGN"/>
+                <constraint firstItem="feU-tD-aue" firstAttribute="leading" secondItem="0Nf-Xf-Z7S" secondAttribute="leading" constant="50" id="hWj-CD-N8F"/>
+                <constraint firstItem="QNB-X2-qVQ" firstAttribute="leading" secondItem="h7e-hh-fOl" secondAttribute="leading" id="jLi-PT-lbc"/>
+                <constraint firstItem="ipp-j4-EhD" firstAttribute="leading" secondItem="h7e-hh-fOl" secondAttribute="leading" id="liX-2l-vUd"/>
+                <constraint firstItem="h7e-hh-fOl" firstAttribute="leading" secondItem="RcT-XZ-tQY" secondAttribute="leading" id="lv1-1n-JbK"/>
+                <constraint firstItem="QNB-X2-qVQ" firstAttribute="top" secondItem="Nyi-Ue-9PZ" secondAttribute="bottom" constant="28.5" id="mDa-52-mpt"/>
+                <constraint firstItem="OWd-Qk-Q7k" firstAttribute="leading" secondItem="0Nf-Xf-Z7S" secondAttribute="leading" constant="50" id="pvw-9v-8Py"/>
+                <constraint firstItem="OWd-Qk-Q7k" firstAttribute="top" secondItem="0Nf-Xf-Z7S" secondAttribute="top" constant="20" id="r57-mM-D3i"/>
+                <constraint firstItem="feU-tD-aue" firstAttribute="top" secondItem="RcT-XZ-tQY" secondAttribute="bottom" constant="2" id="vUb-dB-hkY"/>
+                <constraint firstItem="e4H-eM-XQh" firstAttribute="trailing" secondItem="ipp-j4-EhD" secondAttribute="trailing" id="vmO-3O-gyq"/>
+                <constraint firstItem="Nyi-Ue-9PZ" firstAttribute="leading" secondItem="feU-tD-aue" secondAttribute="leading" id="w4p-it-ji8"/>
+                <constraint firstItem="ipp-j4-EhD" firstAttribute="trailing" secondItem="h7e-hh-fOl" secondAttribute="trailing" id="yVo-TT-e3G"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="0Nf-Xf-Z7S"/>
+            <connections>
+                <outlet property="activityIndicator" destination="wGx-Dr-14U" id="MkY-Xq-g4j"/>
+                <outlet property="cancelButton" destination="e4H-eM-XQh" id="27W-Rm-Agu"/>
+                <outlet property="collectionTextField" destination="QNB-X2-qVQ" id="kHo-4j-Idr"/>
+                <outlet property="errorLabel" destination="Aj2-Co-20M" id="bgh-o1-Ita"/>
+                <outlet property="nameErrorLabel" destination="Nyi-Ue-9PZ" id="94k-Wa-tJC"/>
+                <outlet property="nameTextField" destination="h7e-hh-fOl" id="Vmj-aM-UMP"/>
+                <outlet property="nextButton" destination="ipp-j4-EhD" id="pUS-xc-3Cy"/>
+                <outlet property="userIdErrorLabel" destination="feU-tD-aue" id="mjS-rE-vq5"/>
+                <outlet property="userIdTextField" destination="RcT-XZ-tQY" id="gb9-9t-zqW"/>
+            </connections>
+            <point key="canvasLocation" x="-354" y="-86"/>
+        </view>
+    </objects>
+</document>

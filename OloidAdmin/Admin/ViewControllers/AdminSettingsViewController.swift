@@ -77,45 +77,43 @@ class AdminSettingsViewController: UIViewController {
         }
         else {
             self.activityIndicator.startAnimating()
-            self.warningView.isHidden = true
-            self.hideKeyboard()
-            
-            if endpointTextField.text != "" && appTypeTextField.text != "" && selectedAppId != "" {
-                
-                if let endpointName = self.endpointTextField.text,
-                    let appId = selectedAppId {
-                    adminAPIManager.pairEndPoint(endpointName: endpointName, appID: appId) { (response, error) in
-                        
-                        DispatchQueue.main.async {
-                            
-                            if response == "Success" {
-                                
-                                self.adminAPIManager.getAppConfig() { (response, error) in
-                                    if response == "Success" {
+                   self.warningView.isHidden = true
+                   self.dismissAdminKeyboard()
+                   
+                   if endpointTextField.text != "" && appTypeTextField.text != "" && selectedAppId != "" {
+                       
+                       if let endpointName = self.endpointTextField.text,
+                           let appId = selectedAppId {
+                           adminAPIManager.pairEndPoint(endpointName: endpointName, appID: appId) { (response, error) in
+                               
+                               DispatchQueue.main.async {
+                                   
+                                   if response == "Success" {
                                        
-                                        self.callFirebaseWithCredentials()
-                                        
-                                        
-                                    }
-                                }
-                            }
-                            else {
-                                self.activityIndicator.stopAnimating()
-                                self.warningView.isHidden = false
-                                self.errorLabel.text = error?.localizedDescription
-                            }
-                        }
-                    }
-                }
-                
-            }
-            else {
-                // show warning to enter all fields
-                self.warningView.isHidden = false
-                self.errorLabel.text = "Please enter all fields"
-            }
+                                       self.adminAPIManager.getAppConfig() { (response, error) in
+                                           if response == "Success" {
+                                              
+                                               self.callFirebaseWithCredentials()
+                                           }
+                                       }
+                                   }
+                                   else {
+                                       self.activityIndicator.stopAnimating()
+                                       self.warningView.isHidden = false
+                                       self.errorLabel.text = error?.localizedDescription
+                                   }
+                               }
+                           }
+                       }
+                       
+                   }
+                   else {
+                       // show warning to enter all fields
+                       self.warningView.isHidden = false
+                       self.errorLabel.text = "Please enter all fields"
+                   }
+               }
         }
-    }
     
     func clearAllFieldsOnUnpair() {
         
@@ -124,23 +122,29 @@ class AdminSettingsViewController: UIViewController {
         adminAPIManager.deleteEndpointAPi { (response, error) in
             
             if response == "Success" {
-                let defaults = UserDefaults.standard
-                defaults.removeObject(forKey: "user")
-                defaults.removeObject(forKey: "endpoint")
                 
-                self.endpointTextField.alpha = 1.0
-                self.appTypeTextField.alpha = 1.0
-                self.endpointTextField.isUserInteractionEnabled = true
-                self.endpointTextField.text = ""
-                self.appTypeTextField.text = ""
-                self.selectAppButton.isUserInteractionEnabled = true
-                self.pairButton.setTitle("Pair", for: .normal)
-                self.endpointNameLabel.alpha = 1.0
-                self.applicationNameLabel.alpha = 1.0
-                self.endpointIDLabel.alpha = 1.0
-                self.endpointIDLabel.isHidden = true
+                DispatchQueue.main.async {
+                    
+                    let defaults = UserDefaults.standard
+                    defaults.removeObject(forKey: "user")
+                    defaults.removeObject(forKey: "endpoint")
+                                        
+                    self.endpointTextField.alpha = 1.0
+                    self.appTypeTextField.alpha = 1.0
+                    self.endpointTextField.isUserInteractionEnabled = true
+                    self.endpointTextField.text = ""
+                    self.appTypeTextField.text = ""
+                    self.selectAppButton.isUserInteractionEnabled = true
+                    self.pairButton.setTitle("Pair", for: .normal)
+                    self.endpointNameLabel.alpha = 1.0
+                    self.applicationNameLabel.alpha = 1.0
+                    self.endpointIDLabel.alpha = 1.0
+                    self.endpointIDLabel.isHidden = true
+                    
+                }
             }
             else {
+                
                 self.warningView.isHidden = false
                 self.errorLabel.text = error?.localizedDescription
             }
@@ -149,30 +153,26 @@ class AdminSettingsViewController: UIViewController {
     
     func callFirebaseWithCredentials() {
         
-        DispatchQueue.main.async {
-            self.activityIndicator.stopAnimating()
-        }
-                  
-        // TODO: Uncomment
-        
-//        CICOFirebase.shared.adminLoginWithUser(adminUser: adminUser, endpoint: endpoint, completion: { [weak self] (error, String) in
-//
-//            if error == nil {
-//                self?.activityIndicator.stopAnimating()
-//            }
-//            if String == "Success" {
-//
-//                self?.isSuccessView = true
-//                self?.bringFormPopupView()
-//                self?.perform(#selector(self?.dismissPopupView), with: nil, afterDelay: 3.0)
-//                //self?.perform(#selector(self?.bringFormPopupView), with: nil, afterDelay: 2.0)
-//            }
-//            else {
-//                self?.warningView.isHidden = false
-//                self?.errorLabel.text = "There was an issue configuring the device. Please try again"
-//            }
-//
-//        })
+        self.activityIndicator.stopAnimating()
+                
+       /* CICOFirebase.shared.adminLoginWithUser(completion: { [weak self] (error, String) in
+            
+            if error == nil {
+                self?.activityIndicator.stopAnimating()
+            }
+            if String == "Success" {
+                
+                self?.isSuccessView = true
+                self?.bringFormPopupView()
+                self?.perform(#selector(self?.dismissPopupView), with: nil, afterDelay: 3.0)
+                //self?.perform(#selector(self?.bringFormPopupView), with: nil, afterDelay: 2.0)
+            }
+            else {
+                self?.warningView.isHidden = false
+                self?.errorLabel.text = "There was an issue configuring the device. Please try again"
+            }
+            
+        })*/
     }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
@@ -180,14 +180,19 @@ class AdminSettingsViewController: UIViewController {
         // clearing ID token
         UserDefaults.standard.set("", forKey: "idToken")
         
-        if let vCtrls = self.navigationController?.viewControllers
-        {
-            let homeVC = vCtrls[1]
-            
-            self.navigationController?.popToViewController(homeVC, animated: true)
-        }
+//        if let vCtrls = self.navigationController?.viewControllers
+//        {
+//            let homeVC = vCtrls[1]
+//
+//            self.navigationController?.popToViewController(homeVC, animated: true)
+//        }
         // TODO:
         // Handle Logout API
+        let storyBoard = UIStoryboard.init(name: "Main", bundle:.main)
+        
+        let vc = storyBoard.instantiateViewController(withIdentifier:"HomeVC")
+        
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     @IBAction func noButtonTapped(_ sender: Any) {
@@ -202,21 +207,25 @@ class AdminSettingsViewController: UIViewController {
         applicationNameLabel.alpha = 0.5
         endpointIDLabel.alpha = 0.5
         endpointIDLabel.isHidden = false
-        if let endpointId = UserDefaults.standard.string(forKey: "endpointID") {
-            endpointIDLabel.text = "EndpointID : " + endpointId
+        
+        let defaults = UserDefaults.standard
+        
+        if let userData = defaults.object(forKey: "endpoint") as? Data {
+            if let endpoint = NSKeyedUnarchiver.unarchiveObject(with: userData) as? Endpoint {
+                endpointIDLabel.text = endpoint.endpointID
+            }
         }
     }
     
     @IBAction func logoutAction(_ sender: Any) {
+       
+        UserDefaults.standard.set("", forKey: "idToken")
+        /*let storyBoard = UIStoryboard.init(name: "Main", bundle:.main)
         
-        // TODO: Add code
-//        UserDefaults.standard.set("", forKey: "idToken")
-//
-//        if let vCtrls = self.navigationController?.viewControllers {
-//            let homeVC = vCtrls[1]
-//
-//            self.navigationController?.popToViewController(homeVC, animated: true)
-//        }
+        let vc = storyBoard.instantiateViewController(withIdentifier:"HomeVC")
+        
+        self.navigationController?.pushViewController(vc, animated: true)*/
+        
     }
     
     override func viewDidLoad() {
@@ -227,6 +236,8 @@ class AdminSettingsViewController: UIViewController {
         
         pairButton.alpha = 0.5
         pairButton.isUserInteractionEnabled = false
+        
+        idToken = UserDefaults.standard.string(forKey: "idToken")
         
         // Do any additional setup after loading the view.
     }
@@ -364,10 +375,4 @@ extension AdminSettingsViewController : UITextFieldDelegate
         return true
     }
 
-}
-
-extension UIViewController {
-    @objc func hideKeyboard() {
-        view.endEditing(true)
-    }
 }

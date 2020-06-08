@@ -12,7 +12,7 @@ class AdminAPIManager: NSObject {
     
     typealias asynAPIResults = (_ response:String,_ error:NSError?) -> Void
     typealias applicationAPIResults = (_ response:NSArray,_ idArray:NSArray, _ error:NSError?) -> Void
-   // typealias pairAPIResults = (_ adminUserRes:AdminUser?, _ endpointRes: Endpoint?,_ error:NSError?) -> Void
+    //typealias connectionAPIResults = (_ response:NSArray, _idArray: NSArray, _ error:NSError?) -> Void
     
     override init() {
         //
@@ -21,9 +21,9 @@ class AdminAPIManager: NSObject {
     func callLoginAPI(tenantName:String, uName:String, password:String, completionHandler:@escaping asynAPIResults) {
         
         let jsonBody:[String:Any] = [
-                "TenantName": tenantName,
-                "UserName": uName,
-                "Password": password
+            "TenantName": tenantName,
+            "UserName": uName,
+            "Password": password
         ]
         
         print("jsonBody: \(jsonBody)")
@@ -36,7 +36,7 @@ class AdminAPIManager: NSObject {
         {
             return
         }
-                
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
@@ -60,10 +60,6 @@ class AdminAPIManager: NSObject {
             
             print("header: \(statusCode) response json: \(httpResponse)")
             
-//            let dRes = String(data: data, encoding: .utf8)
-//
-//            print("dResponse: \(String(describing: dRes))")
-            
             if statusCode == Int(200) || statusCode == Int(201) {
                 
                 if let responseJSON = responseData as? [String: Any]
@@ -82,10 +78,11 @@ class AdminAPIManager: NSObject {
                 }
             }
             else {
-               if let responseJSON = responseData as? [String: Any]
+                
+                if let responseJSON = responseData as? [String: Any]
                 {
                     let msg =  responseJSON["message"] as! String
-                                        
+                    
                     let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
                     
                     completionHandler("",error)
@@ -103,15 +100,15 @@ class AdminAPIManager: NSObject {
         {
             return
         }
-                
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-                
+        
         let authorization = UserDefaults.standard.string(forKey: "idToken")
-                
+        
         request.setValue(authorization, forHTTPHeaderField:"Authorization")
         
-        request.timeoutInterval = 5.0
+        //request.timeoutInterval = 5.0
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             
@@ -124,10 +121,10 @@ class AdminAPIManager: NSObject {
             let httpResponse = response as! HTTPURLResponse
             
             let statusCode = httpResponse.statusCode
-                        
+            
             //let dRes = String(data: data, encoding: .utf8)
             
-           // print("dResponse: \(String(describing: dRes))")
+            // print("dResponse: \(String(describing: dRes))")
             
             if statusCode == Int(200) || statusCode == Int(201) {
                 var appArray: [String] = []
@@ -159,8 +156,8 @@ class AdminAPIManager: NSObject {
     func pairEndPoint(endpointName: String, appID: String,  completionHandler:@escaping asynAPIResults) {
         
         let jsonBody:[String:Any] = [
-                "EndpointName": endpointName,
-                "ApplicationID": appID
+            "EndpointName": endpointName,
+            "ApplicationID": appID
         ]
         
         print("jsonBody: \(jsonBody)")
@@ -173,12 +170,12 @@ class AdminAPIManager: NSObject {
         {
             return
         }
-                
+        
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         
         let autorization = UserDefaults.standard.string(forKey: "idToken")
-                
+        
         request.setValue(autorization, forHTTPHeaderField:"Authorization")
         
         request.httpBody = jsonData
@@ -195,9 +192,9 @@ class AdminAPIManager: NSObject {
             let httpResponse = response as! HTTPURLResponse
             
             let statusCode = httpResponse.statusCode
-                        
-           // let dRes = String(data: data, encoding: .utf8)
-                        
+            
+            // let dRes = String(data: data, encoding: .utf8)
+            
             if statusCode == Int(200) || statusCode == Int(201) {
                 
                 if let responseJSON = responseData as? [String: Any] {
@@ -261,12 +258,12 @@ class AdminAPIManager: NSObject {
         {
             return
         }
-                
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         let autorization = UserDefaults.standard.string(forKey: "idToken")
-                
+        
         request.setValue(autorization, forHTTPHeaderField:"Authorization")
         
         request.timeoutInterval = 5.0
@@ -283,16 +280,16 @@ class AdminAPIManager: NSObject {
             
             let statusCode = httpResponse.statusCode
             
-           // print("header: \(statusCode) response json: \(httpResponse)")
+            // print("header: \(statusCode) response json: \(httpResponse)")
             
             let dRes = String(data: data, encoding: .utf8)
             
-           // print("dResponse: \(String(describing: dRes))")
+            // print("dResponse: \(String(describing: dRes))")
             
             if statusCode == Int(200) || statusCode == Int(201) {
                 
                 completionHandler("Success",nil)
-            
+                
             }
             else {
                 completionHandler("Error",nil)
@@ -312,7 +309,6 @@ class AdminAPIManager: NSObject {
         }
         
         if let endpointId = endpoint.endpointID {
-            
             guard let url = URL(string: AdminConstants.AdminUrlConstants.kDeleteEndpointApiUrl + "/" + (endpointId)) else
             {
                 return
@@ -359,5 +355,157 @@ class AdminAPIManager: NSObject {
             }
             task.resume()
         }
+    }
+    
+    func listConnectionsAPi(completionHandler:@escaping applicationAPIResults) {
+        
+        let defaults = UserDefaults.standard
+        guard let endpointData = defaults.object(forKey: "endpoint") as? Data else {
+            return
+        }
+        guard let endpoint = NSKeyedUnarchiver.unarchiveObject(with: endpointData) as? Endpoint else {
+            return
+        }
+        
+        if let applicationId = endpoint.applicationID {
+            guard let url = URL(string: AdminConstants.AdminUrlConstants.kListConnectionsUrl + (applicationId)) else
+            {
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            
+            request.httpMethod = "GET"
+            
+            let autorization = UserDefaults.standard.string(forKey: "idToken")
+            
+            request.setValue(autorization, forHTTPHeaderField:"Authorization")
+            
+            request.timeoutInterval = 5.0
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "No data")
+                    return
+                }
+                let responseData = try? JSONSerialization.jsonObject(with: data, options: [])
+                
+                let httpResponse = response as! HTTPURLResponse
+                
+                let statusCode = httpResponse.statusCode
+                
+                if statusCode == Int(200) || statusCode == Int(201) {
+                    
+                    var connectionNameArray: [String] = []
+                    var connectionIDArray: [String] = []
+                    
+                    if let responseJSON = responseData as? [String: Any]
+                    {
+                        let array =  responseJSON["data"] as! NSArray
+                        
+                        for dict in array {
+                            if let obj = dict as? [String: Any] {
+                                let connName = obj["ConnectionDisplayName"] as! String
+                                connectionNameArray.append(connName)
+                                
+                                let connID = obj["ConnectionID"] as! String
+                                connectionIDArray.append(connID)
+                            }
+                        }
+                    }
+                    completionHandler(connectionNameArray as NSArray, connectionIDArray as NSArray, nil)
+                    
+                }
+                else {
+                    if let responseJSON = responseData as? [String: Any]
+                    {
+                        let msg =  responseJSON["message"] as! String
+                        
+                        let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
+                        
+                        completionHandler([],[],error)
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    func callAddUserAPI(connectionId:String, fullName:String, primaryID: String, secondaryID: String, completionHandler:@escaping asynAPIResults) {
+        
+        let jsonBody:[String:Any] = [
+            "ConnectionID": connectionId,
+            "FullName": fullName,
+            "PrimaryID": primaryID,
+            "SecondaryID": secondaryID
+        ]
+        
+        print("jsonBody: \(jsonBody)")
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody)
+        
+        // create post request
+        
+        guard let url = URL(string: AdminConstants.AdminUrlConstants.KAddUserUrl) else
+        {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        print("request sent: \(String(describing: request.allHTTPHeaderFields))")
+        
+        let autorization = UserDefaults.standard.string(forKey: "idToken")
+        
+        request.setValue(autorization, forHTTPHeaderField:"Authorization")
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+        request.timeoutInterval = 5.0
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseData = try? JSONSerialization.jsonObject(with: data, options: [])
+            
+            let httpResponse = response as! HTTPURLResponse
+            
+            let statusCode = httpResponse.statusCode
+            
+            print("header: \(statusCode) response json: \(httpResponse)")
+            
+            if statusCode == Int(200) || statusCode == Int(201) {
+                
+                if let responseJSON = responseData as? [String: Any]
+                {
+                    let array =  responseJSON["data"] as! NSDictionary
+                    
+                    for dict in array {
+                        if let obj = dict as? [String: Any] {
+                            let name = obj["DisplayName"] as! String
+                        }
+                    }
+                }
+                
+                completionHandler("Success", nil)
+            }
+            else {
+                
+                if let responseJSON = responseData as? [String: Any]
+                {
+                    let msg =  responseJSON["message"] as! String
+                    
+                    let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
+                    
+                    completionHandler("",error)
+                }
+            }
+        }
+        task.resume()
     }
 }

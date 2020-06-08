@@ -40,6 +40,8 @@ class AdminLoginViewController: UIViewController {
         emailTextField.roundedWithGrayBorder()
         passwordTextField.roundedWithGrayBorder()
         loginButton.roundedCorners()
+        loginButton.alpha = 0.5
+        loginButton.isUserInteractionEnabled = false
         
         let defaults = UserDefaults.standard
         guard let adminData = defaults.object(forKey: "adminUser") as? Data else {
@@ -54,6 +56,12 @@ class AdminLoginViewController: UIViewController {
             nameLength = self.nameTextField.text?.count ?? 0
             nameTextField.roundedWithBlueBorder()
         }
+        
+//        self.nameTextField.text = "uber"
+//        self.emailTextField.text = "shankar@oloid.ai"
+//        self.passwordTextField.text = "Oloid@123"
+//        loginButton.alpha = 1.0
+//        loginButton.isUserInteractionEnabled = true
 
         // Do any additional setup after loading the view.
     }
@@ -105,6 +113,9 @@ class AdminLoginViewController: UIViewController {
                             self.navigationController?.pushViewController(vc, animated: true)
                         }
                         else {
+                            self.nameTextField.roundedWithBlueBorder()
+                            self.emailTextField.roundedWithBlueBorder()
+                            self.passwordTextField.roundedWithBlueBorder()
                             self.warningView.isHidden = false
                             self.errorLabel.text = error?.localizedDescription
                         }
@@ -201,6 +212,32 @@ extension AdminLoginViewController : UITextFieldDelegate
         let newLength = currentCharacterCount + string.count - range.length
         return newLength
     }
+    
+//    func handleLoginButtonInteraction(textField: UITextField, range: NSRange,string: String) {
+//
+//        var name: Int = 0
+//        var email: Int = 0
+//        var password: Int = 0
+//
+//        if textField.tag == 100 {
+//            name = getTextLength(textField: nameTextField, range: range, string: string)
+//        }
+//        else if textField.tag == 101 {
+//            email = getTextLength(textField: emailTextField, range: range, string: string)
+//        }
+//        else if textField.tag == 102 {
+//            password = getTextLength(textField: passwordTextField, range: range, string: string)
+//        }
+//
+//        if name != 0 && email != 0 && password != 0 {
+//            loginButton.alpha = 1.0
+//            loginButton.isUserInteractionEnabled = true
+//        }
+//        else {
+//            loginButton.alpha = 0.5
+//            loginButton.isUserInteractionEnabled = false
+//        }
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {

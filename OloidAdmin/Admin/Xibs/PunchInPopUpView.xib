@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Bold.ttf">
+            <string>Nunito-Bold</string>
+        </array>
+        <array key="Nunito-SemiBold.ttf">
+            <string>Nunito-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PunchInPopUpView" customModule="Oloid_Verify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xhw-zX-Ouf">
+                    <rect key="frame" x="23" y="33" width="150" height="130"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="bB3-s0-Jo0"/>
+                        <constraint firstAttribute="height" constant="130" id="lMu-c7-vwX"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Madhu Madhusudhanan" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlW-Pp-pv3">
+                    <rect key="frame" x="193" y="55" width="132" height="60.5"/>
+                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xua-RK-C1N">
+                    <rect key="frame" x="193" y="125.5" width="132" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="FES-sY-WFl"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:59 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WnZ-eh-LY0">
+                    <rect key="frame" x="193" y="136.5" width="132" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="dMb-uv-JYR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VpS-J2-NRl">
+                    <rect key="frame" x="22" y="183" width="306" height="87"/>
+                    <color key="backgroundColor" red="0.2004782259" green="0.46143299339999999" blue="0.96475428340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" name="Nunito-Bold" family="Nunito" pointSize="25"/>
+                    <state key="normal" title="PUNCH IN">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="punchInButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="L0w-gX-XmT"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.99998801950000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="WnZ-eh-LY0" firstAttribute="top" secondItem="xua-RK-C1N" secondAttribute="bottom" constant="10" id="2k3-6p-uuj"/>
+                <constraint firstItem="xua-RK-C1N" firstAttribute="trailing" secondItem="wlW-Pp-pv3" secondAttribute="trailing" id="LSX-rE-5sT"/>
+                <constraint firstItem="VpS-J2-NRl" firstAttribute="top" secondItem="Xhw-zX-Ouf" secondAttribute="bottom" constant="20" id="P9a-xC-sFk"/>
+                <constraint firstItem="xua-RK-C1N" firstAttribute="leading" secondItem="wlW-Pp-pv3" secondAttribute="leading" id="YVp-9E-xZh"/>
+                <constraint firstItem="WnZ-eh-LY0" firstAttribute="trailing" secondItem="xua-RK-C1N" secondAttribute="trailing" id="d8U-zS-iIn"/>
+                <constraint firstItem="wlW-Pp-pv3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="55" id="k6P-tk-UVW"/>
+                <constraint firstItem="Xhw-zX-Ouf" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="kKt-18-ZMJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VpS-J2-NRl" secondAttribute="trailing" constant="22" id="lBC-oY-Sj2"/>
+                <constraint firstItem="WnZ-eh-LY0" firstAttribute="leading" secondItem="xua-RK-C1N" secondAttribute="leading" id="lLB-iI-hCX"/>
+                <constraint firstItem="VpS-J2-NRl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="22" id="lsM-fq-egT"/>
+                <constraint firstItem="Xhw-zX-Ouf" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="23" id="oTz-oZ-dqU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wlW-Pp-pv3" secondAttribute="trailing" constant="25" id="pkx-NO-sFN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VpS-J2-NRl" secondAttribute="bottom" constant="30" id="wFo-Wi-Qak"/>
+                <constraint firstItem="wlW-Pp-pv3" firstAttribute="leading" secondItem="Xhw-zX-Ouf" secondAttribute="trailing" constant="20" id="yhk-qc-Llk"/>
+                <constraint firstItem="xua-RK-C1N" firstAttribute="top" secondItem="wlW-Pp-pv3" secondAttribute="bottom" constant="10" id="yyE-t2-ccJ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="imageView" destination="Xhw-zX-Ouf" id="7f8-34-efE"/>
+                <outlet property="nameLabel" destination="wlW-Pp-pv3" id="gjd-ji-S7o"/>
+                <outlet property="punchInButton" destination="VpS-J2-NRl" id="Aur-5n-mjE"/>
+                <outlet property="timeLabel" destination="WnZ-eh-LY0" id="SnG-b3-xBA"/>
+            </connections>
+            <point key="canvasLocation" x="108.69565217391305" y="10.714285714285714"/>
+        </view>
+    </objects>
+</document>

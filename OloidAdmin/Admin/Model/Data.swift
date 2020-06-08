@@ -93,6 +93,46 @@ class Endpoint: User {
 }
 
 
+class Connection: NSObject {
+   
+    var connectionID: String?
+    var desc: String?
+    var onlineModel: String?
+    var createdAt: String?
+    var connectionDisplayName: String?
+    var updatedAt: String?
+    
+    init(connectionID: String,description: String,onlineModel: String,createdAt: String,connectionDisplayName: String,updatedAt: String) {
+        
+        self.connectionID = connectionID
+        self.desc = description
+        self.onlineModel = onlineModel
+        self.createdAt = createdAt
+        self.connectionDisplayName = connectionDisplayName
+        self.updatedAt = updatedAt
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        let connectionID = aDecoder.decodeObject(forKey: "connectionID") as! String
+        let description = aDecoder.decodeObject(forKey: "description") as! String
+        let onlineModel = aDecoder.decodeObject(forKey: "onlineModel") as! String
+        let createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
+        let connectionDisplayName = aDecoder.decodeObject(forKey: "connectionDisplayName") as! String
+        let updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! String
+        
+        self.init(connectionID: connectionID, description: description, onlineModel: onlineModel,createdAt: createdAt, connectionDisplayName: connectionDisplayName, updatedAt: updatedAt)
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(connectionID, forKey: "connectionID")
+        coder.encode(desc, forKey: "description")
+        coder.encode(onlineModel, forKey: "onlineModel")
+        coder.encode(createdAt, forKey: "createdAt")
+        coder.encode(connectionDisplayName, forKey: "connectionDisplayName")
+        coder.encode(updatedAt, forKey: "updatedAt")
+    }
+}
+
 
 
 // Currently not in use

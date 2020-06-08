@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nunito-Regular.ttf">
+            <string>Nunito-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoodPicturePopUpView" customModule="Oloid_Verify" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GoodPicturePopUpView" customModule="Oloid_Verify" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="350"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GIH-Xj-7sP">
+                    <rect key="frame" x="125" y="18" width="150" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="851-fS-Iyi"/>
+                        <constraint firstAttribute="width" constant="150" id="czV-iy-5CC"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Happy with the picture?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWV-sa-in6">
+                    <rect key="frame" x="115" y="171" width="170.5" height="22"/>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lon-li-L6g">
+                    <rect key="frame" x="23" y="228" width="354" height="40"/>
+                    <color key="backgroundColor" red="0.2004782259" green="0.46143299339999999" blue="0.96475428340000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="RvN-GT-IsM"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
+                    <state key="normal" title="YES-SUBMIT">
+                        <color key="titleColor" red="0.94118279220000001" green="0.94116514920000005" blue="0.94117718939999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                    <connections>
+                        <action selector="submitButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Wno-zO-gS6"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UW-du-a6q">
+                    <rect key="frame" x="23" y="293" width="354" height="35"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Jht-pX-VmE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Nunito-Regular" family="Nunito" pointSize="20"/>
+                    <state key="normal" title="NO-RETAKE"/>
+                    <connections>
+                        <action selector="retakeButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="2f6-pP-UOR"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lon-li-L6g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="23" id="3fn-Lw-UUo"/>
+                <constraint firstItem="cWV-sa-in6" firstAttribute="top" secondItem="GIH-Xj-7sP" secondAttribute="bottom" constant="3" id="8Ej-WG-v92"/>
+                <constraint firstItem="2UW-du-a6q" firstAttribute="leading" secondItem="lon-li-L6g" secondAttribute="leading" id="DDn-Pw-JaT"/>
+                <constraint firstItem="lon-li-L6g" firstAttribute="top" secondItem="cWV-sa-in6" secondAttribute="bottom" constant="35" id="JCG-BF-vIM"/>
+                <constraint firstItem="cWV-sa-in6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dnX-be-mg0"/>
+                <constraint firstItem="2UW-du-a6q" firstAttribute="top" secondItem="lon-li-L6g" secondAttribute="bottom" constant="25" id="mPd-oC-5CD"/>
+                <constraint firstItem="GIH-Xj-7sP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="nnL-Yi-rB4"/>
+                <constraint firstItem="2UW-du-a6q" firstAttribute="trailing" secondItem="lon-li-L6g" secondAttribute="trailing" id="rD0-Vo-0Kl"/>
+                <constraint firstItem="GIH-Xj-7sP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="18" id="ti5-qz-U4N"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="lon-li-L6g" secondAttribute="trailing" constant="23" id="yHk-FR-1ZU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="faceImage" destination="GIH-Xj-7sP" id="Fen-aA-6M0"/>
+                <outlet property="msg" destination="cWV-sa-in6" id="RAr-xm-Yqp"/>
+                <outlet property="retakeButton" destination="2UW-du-a6q" id="4Nb-nc-5Ox"/>
+                <outlet property="submitButton" destination="lon-li-L6g" id="C2O-PB-Rz8"/>
+            </connections>
+            <point key="canvasLocation" x="-807" y="-167"/>
+        </view>
+    </objects>
+</document>
