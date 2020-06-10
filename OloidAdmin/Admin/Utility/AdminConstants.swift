@@ -19,6 +19,7 @@ struct AdminConstants {
         static let kDeleteEndpointApiUrl = "https://v2abf3htv3.execute-api.us-east-2.amazonaws.com/dev/endpoint/pair"
          static let kListConnectionsUrl = "https://v2abf3htv3.execute-api.us-east-2.amazonaws.com/dev/connections?applicationID="
         static let KAddUserUrl = "https://v2abf3htv3.execute-api.us-east-2.amazonaws.com/dev/users"
+        static let KListApplicationUsersUrl = "https://v2abf3htv3.execute-api.us-east-2.amazonaws.com/dev/applications"
     }
 }
 

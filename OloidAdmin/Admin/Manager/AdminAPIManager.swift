@@ -12,7 +12,7 @@ class AdminAPIManager: NSObject {
     
     typealias asynAPIResults = (_ response:String,_ error:NSError?) -> Void
     typealias applicationAPIResults = (_ response:NSArray,_ idArray:NSArray, _ error:NSError?) -> Void
-    //typealias connectionAPIResults = (_ response:NSArray, _idArray: NSArray, _ error:NSError?) -> Void
+    typealias listAPIResults = (_ response:NSArray, _ error:NSError?) -> Void
     
     override init() {
         //
@@ -244,7 +244,14 @@ class AdminAPIManager: NSObject {
                 }
             }
             else {
-                completionHandler("Error", nil)
+                if let responseJSON = responseData as? [String: Any]
+                {
+                    let msg =  responseJSON["message"] as! String
+                    
+                    let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
+                    
+                    completionHandler("",error)
+                }
             }
         }
         task.resume()
@@ -483,16 +490,46 @@ class AdminAPIManager: NSObject {
                 
                 if let responseJSON = responseData as? [String: Any]
                 {
-                    let array =  responseJSON["data"] as! NSDictionary
+                    let dict =  responseJSON["data"] as! NSDictionary
                     
-                    for dict in array {
-                        if let obj = dict as? [String: Any] {
-                            let name = obj["DisplayName"] as! String
-                        }
-                    }
+                    let subDict = dict["user"] as! NSDictionary
+                    
+                    let connectionID = subDict["ConnectionID"] as? String
+                    let oloid = subDict["Oloid"] as? String
+                    
+//                    let displayName = subDict["DisplayName"] as? String
+//                    let secondaryID = subDict["SecondaryID"] as? String
+//                    let createdAt = subDict["CreatedAt"] as? String
+//                    let onlineModel = subDict["OnlineModel"] as? String
+//                    let primaryId = subDict["PrimaryID"] as? String
+//                    let updatedAt = subDict["UpdatedAt"] as? String
+//                    let fullName = subDict["FullName"] as? String
+//
+//                    let deviceModel = subDict["OndeviceModel"] as? String
+//                    let tenantName = subDict["TenantName"] as? String
+//                    let tenantID = subDict["TenantID"] as? String
+//                    let oloid = subDict["Oloid"] as? String
+//                    let status = subDict["Status"] as? String
+//                    let connDisplayName = subDict["ConnectionDisplayName"] as? String
+                                        
+                    let defaults = UserDefaults.standard
+                    
+                    // TODO:
+                    defaults.set(oloid, forKey: "oloid")
+                    defaults.set(connectionID, forKey: "connectionID")
+                    
+                    completionHandler("Success", nil)
+                    
+//                    let createdUserDetails = Connection.init(displayName: displayName ?? "", secondaryID: secondaryID ?? "", createdAt: createdAt ?? "", onlineModel: onlineModel ?? "", primaryId: primaryId ?? "", updatedAt: updatedAt ?? "", fullName: fullName ?? "", connectionID: connectionID ?? "", deviceModel: deviceModel ?? "", tenantName: tenantName ?? "", tenantID: tenantID ?? "", oloid: oloid ?? "", status: status ?? "", connectionDisplayName: connDisplayName ?? "")
+//
+//                    do {
+//                        let connectionData = try NSKeyedArchiver.archivedData(withRootObject: createdUserDetails, requiringSecureCoding: false)
+//                        defaults.set(connectionData, forKey: "connection")
+//                        completionHandler("Success", nil)
+//                    } catch {
+//                        print("Couldn't write file")
+//                    }
                 }
-                
-                completionHandler("Success", nil)
             }
             else {
                 
@@ -503,6 +540,79 @@ class AdminAPIManager: NSObject {
                     let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
                     
                     completionHandler("",error)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    
+    func callListApplicationUsersAPI(applicationID:String, connectionID: String, oloid: String, completionHandler:@escaping listAPIResults) {
+        
+        let jsonBody:[String:Any] = [:]
+
+        print("jsonBody: \(jsonBody)")
+
+        let jsonData = try? JSONSerialization.data(withJSONObject: jsonBody)
+        
+        // create post request
+        
+        guard let url = URL(string: AdminConstants.AdminUrlConstants.KListApplicationUsersUrl + "/" + (applicationID) + "/" + "users") else
+        {
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        let autorization = UserDefaults.standard.string(forKey: "idToken")
+        
+        request.setValue(autorization, forHTTPHeaderField:"Authorization")
+        
+        print("request sent: \(String(describing: request.allHTTPHeaderFields))")
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+        request.timeoutInterval = 5.0
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "No data")
+                return
+            }
+            let responseData = try? JSONSerialization.jsonObject(with: data, options: [])
+            
+            let httpResponse = response as! HTTPURLResponse
+            
+            let statusCode = httpResponse.statusCode
+            
+            print("header: \(statusCode) response json: \(httpResponse)")
+            
+            if statusCode == Int(200) || statusCode == Int(201) {
+                
+                if let responseJSON = responseData as? [String: Any]
+                {
+                    let dict =  responseJSON["data"] as! NSDictionary
+                    
+                    //let subDict = dict["data"] as! NSDictionary
+                    
+                    let array = dict["users"] as! NSArray
+                    
+                   // let resultArray = innerDict["users"] as! NSArray
+                    
+                    completionHandler(array,nil)
+                }
+            }
+            else {
+                
+                if let responseJSON = responseData as? [String: Any]
+                {
+                    let msg =  responseJSON["message"] as! String
+                    
+                    let error = NSError.init(domain:"com.oloid.error", code: -1, userInfo:[NSLocalizedDescriptionKey:msg])
+                    
+                    completionHandler([],error)
                 }
             }
         }

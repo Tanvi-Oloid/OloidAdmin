@@ -11,25 +11,53 @@ import UIKit
 class AdminAddUserViewController: UIViewController {
     
     var adminAPIManager = AdminAPIManager.init()
-    @IBOutlet weak var vwMetaDataForm: UIView!
     
     var addUserPopUpView = AddUserPopUpview()
     var addBadgePopUpView = BadgePopUpView()
     var userDetailVC = AdminUserProfileViewController()
     
     var connIdArray: NSArray!
+    var connNameArray: NSArray!
     var selectedId: String!
     var connectionName: String!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var errorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        setUpPopUpViews()
-        self.bringFormPopupView()
-//        self.setUpVwFormMetadata()
-//        self.addPopUpView()
+        self.hideKeyboardWhenTap()
+
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        checkForEmptyScreen()
+        super.viewWillAppear(animated)
+    }
+    
+    func checkForEmptyScreen() {
+        
+        var appID: String?
+        
+        let defaults = UserDefaults.standard
+        if let userData = defaults.object(forKey: "endpoint") as? Data {
+            if let endpoint = NSKeyedUnarchiver.unarchiveObject(with: userData) as? Endpoint {
+                appID = endpoint.applicationID
+                
+                errorLabel.isHidden = true
+                callListConnectionAPI()
+                
+            }
+        }
+        else {
+            appID = ""
+            errorLabel.isHidden = false
+        }
+        
     }
     
     func setUpPopUpViews() {
@@ -63,33 +91,13 @@ class AdminAddUserViewController: UIViewController {
         self.addBadgePopUpView.errorLabel.isHidden = true
     }
     
-//    func setUpVwFormMetadata()
-//    {
-//        self.vwMetaDataForm.clipsToBounds = true
-//        self.vwMetaDataForm.layer.cornerRadius = 8.0
-//
-//        for vw in self.vwMetaDataForm.subviews
-//        {
-//            if vw is ViewFaceMetaDataPopup
-//            {
-//                refOfStackVw = vw as? ViewFaceMetaDataPopup
-//                break
-//            }
-//        }
-//
-//        if let stackVw = refOfStackVw
-//        {
-//            stackVw.delegate = self
-//        }
-//    }
-    
     func addPopUpView() {
-        /*let app = UIApplication.shared.delegate as! AppDelegate
-        
-        if let activityTracker = app.adminActivityTracker
-        {
-            activityTracker.setNewDate(date: Date())
-        }*/
+//        let app = UIApplication.shared.delegate as! AppDelegate
+//
+//        if let activityTracker = app.adminActivityTracker
+//        {
+//            activityTracker.setNewDate(date: Date())
+//        }
         
         self.bringFormPopupView()
     }
@@ -116,184 +124,82 @@ class AdminAddUserViewController: UIViewController {
         }
         
         UIView.animate(withDuration:0.5) {
-            
-           // self.topPopUpConstrain.constant = 350
-            
+                        
             self.view.layoutIfNeeded()
-            
             self.view.addSubview(self.addUserPopUpView)
-            
-            //self.view.addSubview(self.vwMetaDataForm)
-            
         }
-        
-        //refOfStackVw?.setDefaults()
     }
-    func dismissPopupView()
-    {
+    
+    func dismissPopupView() {
         var refBlurVw:UIVisualEffectView?
         
-        for vw in self.view.subviews
-        {
+        for vw in self.view.subviews {
             if vw is UIVisualEffectView
             {
                 refBlurVw = vw as? UIVisualEffectView
             }
         }
-        
-        if let blrVw = refBlurVw
-        {
+        if let blrVw = refBlurVw {
             blrVw.removeFromSuperview()
         }
         
         UIView.animate(withDuration:0.5) {
-            
-           // self.topPopUpConstrain.constant = -500
-            
             self.view.layoutIfNeeded()
-            
-            //self.view.addSubview(self.vwMetaDataForm)
-            
         }
     }
-
+    
+    func callListConnectionAPI() {
+        // call API
+        //addUserPopUpView.activityIndicator.startAnimating()
+        
+        self.activityIndicator.startAnimating()
+        errorLabel.isHidden = false
+        errorLabel.text = "Fetching connections list"
+        adminAPIManager.listConnectionsAPi { (responseArray,idArray, error) in
+            
+            DispatchQueue.main.async {
+                
+                self.activityIndicator.stopAnimating()
+                
+                if error == nil {
+                    self.errorLabel.isHidden = true
+                    
+                    if responseArray.count != 0 {
+                        self.connIdArray = idArray
+                        self.connNameArray = responseArray
+                        self.setUpPopUpViews()
+                        self.bringFormPopupView()
+                    }
+                    else {
+                        self.errorLabel.isHidden = false
+                        self.errorLabel.text = "There are no connections."
+                        //self.addUserPopUpView.errorLabel.isHidden = false
+                        //self.addUserPopUpView.errorLabel.text = "There are no connections"
+                    }
+                }
+                else {
+                   //  show error
+                    
+                    self.errorLabel.isHidden = false
+                    self.errorLabel.text = error?.localizedDescription
+//                    self.addUserPopUpView.errorLabel.isHidden = false
+//                    self.addUserPopUpView.errorLabel.text = error?.localizedDescription
+                }
+            }
+        }
+    }
 }
-//extension AdminAddUserViewController : ViewFaceMetaDataPopupDelegate
-//{
-//    func didNextButtonTap(inputs: FormInputs) {
-//
-//        self.dismissPopupView()
-//        print("inputs: \(inputs)")
-//
-//        let app = UIApplication.shared.delegate as! AppDelegate
-//
-//        if let activityTracker = app.adminActivityTracker
-//        {
-//            activityTracker.setNewDate(date: Date())
-//        }
-//
-//        let userMetaData = UserMetaData.init(badgeNumber: inputs.badgeNumber, displayName: inputs.displayName)
-//
-//        self.sendToPhotoClickMode(userMetaData: userMetaData)
-//    }
-//
-//    func didCollectionNameTap() {
-//        // call collection api
-//    }
-//
-//    func didCancelButtonTap() {
-//
-//        let app = UIApplication.shared.delegate as! AppDelegate
-//
-//        if let activityTracker = app.adminActivityTracker
-//        {
-//            activityTracker.setNewDate(date: Date())
-//        }
-//
-//        self.dismissPopupView()
-//        print("cancel")
-//    }
-//
-//    func bringFormPopupView()
-//    {
-//        self.view.layoutIfNeeded()
-//
-//        let blurEffect = UIBlurEffect(style: .dark)
-//
-//        if !UIAccessibility.isReduceTransparencyEnabled {
-//
-//            //self.view.backgroundColor = self.view.backgroundColor
-//
-//            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//            //always fill the view
-//            blurEffectView.frame = self.view.bounds
-//            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//
-//            self.view.addSubview(blurEffectView)
-//
-//        } else {
-//            self.view.backgroundColor = .black
-//
-//        }
-//
-//        UIView.animate(withDuration:0.5) {
-//
-//            //self.topPopUpConstrain.constant = 350
-//
-//            self.view.layoutIfNeeded()
-//
-//            self.view.addSubview(self.vwMetaDataForm)
-//        }
-//
-//        refOfStackVw?.setDefaults()
-//    }
-//
-//    func dismissPopupView()
-//    {
-//        var refBlurVw:UIVisualEffectView?
-//
-//        for vw in self.view.subviews
-//        {
-//            if vw is UIVisualEffectView
-//            {
-//                refBlurVw = vw as? UIVisualEffectView
-//            }
-//        }
-//
-//        if let blrVw = refBlurVw
-//        {
-//            blrVw.removeFromSuperview()
-//        }
-//
-//        UIView.animate(withDuration:0.5) {
-//
-//           // self.topPopUpConstrain.constant = -500
-//
-//            self.view.layoutIfNeeded()
-//
-//            self.view.addSubview(self.vwMetaDataForm)
-//
-//        }
-//    }
-//}
 
 // MARK: Add User Pop up Delegate
 
 extension AdminAddUserViewController : AddUserPopUpviewDelegate
 {
     func onCollectionNameClick() {
-        // call API
-        addUserPopUpView.activityIndicator.startAnimating()
-        adminAPIManager.listConnectionsAPi { (responseArray,idArray, error) in
-            
-            DispatchQueue.main.async {
-                
-                self.addUserPopUpView.activityIndicator.stopAnimating()
-                
-                if error == nil {
-                    if responseArray.count != 0 {
-                        
-                        self.connIdArray = idArray
-                        
-                        let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
-                        let vc = storyBoard.instantiateViewController(withIdentifier:"AdminListTypeViewController") as! AdminListTypeViewController
-                        vc.delegate = self
-                        vc.listArray = responseArray
-                        self.present(vc, animated: true, completion: nil)
-                        
-                    }
-                    else {
-                        self.addUserPopUpView.errorLabel.isHidden = false
-                        self.addUserPopUpView.errorLabel.text = "There are no connections"
-                    }
-                }
-                else {
-                   //  show error
-                    self.addUserPopUpView.errorLabel.isHidden = false
-                    self.addUserPopUpView.errorLabel.text = error?.localizedDescription
-                }
-            }
-        }
+        let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+        let vc = storyBoard.instantiateViewController(withIdentifier:"AdminListTypeViewController") as! AdminListTypeViewController
+        vc.delegate = self
+        vc.listArray = self.connNameArray
+        self.present(vc, animated: true, completion: nil)
     }
     
     func onAddUserNextButtonTapped(userID: String, name: String) {
@@ -306,6 +212,22 @@ extension AdminAddUserViewController : AddUserPopUpviewDelegate
         self.view.addSubview(addBadgePopUpView)
     }
     func onAddUserCancelButtonTapped() {
+        
+        let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+        let vc = storyBoard.instantiateViewController(withIdentifier:"Tabbar") as! UITabBarController
+        
+        vc.selectedIndex = 0
+        
+                                    
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+//        let vc = storyBoard.instantiateViewController(withIdentifier:"CICOFaceListVC")
+//
+//        //vc.idToken = response
+//
+//        self.navigationController?.pushViewController(vc, animated: true)
+        
 //        addUserPopUpView.userIdTextField.text = ""
 //        addUserPopUpView.nameTextField.text = ""
 //        addUserPopUpView.nextButton.isEnabled = false
@@ -328,7 +250,6 @@ extension AdminAddUserViewController : BadgePopUpViewDelegate
 {
     func onBadgeViewNextTapped(userID: String, name: String, badgeNumber: String) {
         
-        // call aPI
         
         self.addBadgePopUpView.errorLabel.isHidden = true
         addBadgePopUpView.activityIndicator.startAnimating()
@@ -340,7 +261,7 @@ extension AdminAddUserViewController : BadgePopUpViewDelegate
             return
         }
         
-        adminAPIManager.callAddUserAPI(connectionId: self.selectedId, fullName: name, primaryID: userID, secondaryID: badgeNumber) { (responseArray,  error) in
+        adminAPIManager.callAddUserAPI(connectionId: self.selectedId, fullName: name, primaryID: userID, secondaryID: badgeNumber) { (response,  error) in
                         
             DispatchQueue.main.async {
                 self.addBadgePopUpView.activityIndicator.stopAnimating()
@@ -366,23 +287,12 @@ extension AdminAddUserViewController : BadgePopUpViewDelegate
             }
         }
         
-        
-//        addBadgePopUpView.badgeTextField.text = ""
-//        
-//        addUserPopUpView.userIdTextField.text = ""
-//        addUserPopUpView.nameTextField.text = ""
-//        addUserPopUpView.nextButton.isEnabled = false
-//        addUserPopUpView.nextButton.alpha = 0.5
-//        
-//        addBadgePopUpView.removeFromSuperview()
-//        self.dismissPopupView()
-        
-        /*let app = UIApplication.shared.delegate as! AppDelegate
-        
-        if let activityTracker = app.adminActivityTracker
-        {
-            activityTracker.setNewDate(date: Date())
-        }*/
+//        let app = UIApplication.shared.delegate as! AppDelegate
+//
+//        if let activityTracker = app.adminActivityTracker
+//        {
+//            activityTracker.setNewDate(date: Date())
+//        }
     }
     
     func onBadgeViewCancelTapped() {
@@ -394,6 +304,7 @@ extension AdminAddUserViewController : BadgePopUpViewDelegate
         addUserPopUpView.nameTextField.text = ""
         addUserPopUpView.nextButton.isEnabled = false
         addUserPopUpView.nextButton.alpha = 0.5
+        addBadgePopUpView.errorLabel.isHidden = true
         
         addBadgePopUpView.removeFromSuperview()
         
@@ -402,13 +313,12 @@ extension AdminAddUserViewController : BadgePopUpViewDelegate
 //        addBadgePopUpView.userID = userID
 //        addBadgePopUpView.userName = name
         self.view.addSubview(addUserPopUpView)
-        
-        /*let app = UIApplication.shared.delegate as! AppDelegate
-        
-        if let activityTracker = app.adminActivityTracker
-        {
-            activityTracker.setNewDate(date: Date())
-        }*/
+//        let app = UIApplication.shared.delegate as! AppDelegate
+//
+//        if let activityTracker = app.adminActivityTracker
+//        {
+//            activityTracker.setNewDate(date: Date())
+//        }
         
         //self.dismissPopupView()
         print("cancel")

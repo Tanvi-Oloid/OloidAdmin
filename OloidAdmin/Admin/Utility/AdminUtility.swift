@@ -44,6 +44,12 @@ extension UITextField {
 
 extension UIViewController {
     
+    func hideKeyboardWhenTap() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissAdminKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
     @objc func dismissAdminKeyboard() {
         view.endEditing(true)
     }

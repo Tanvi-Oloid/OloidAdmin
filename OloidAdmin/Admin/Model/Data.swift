@@ -95,45 +95,77 @@ class Endpoint: User {
 
 class Connection: NSObject {
    
-    var connectionID: String?
-    var desc: String?
-    var onlineModel: String?
+    var displayName: String?
+    var secondaryID: String?
     var createdAt: String?
-    var connectionDisplayName: String?
+    var onlineModel: String?
+    var primaryId: String?
     var updatedAt: String?
+    var fullName: String?
+    var connectionID: String?
+    var deviceModel: String?
+    var tenantName: String?
+    var tenantID: String?
+    var oloid: String?
+    var status: String?
+    var connectionDisplayName: String?
+
     
-    init(connectionID: String,description: String,onlineModel: String,createdAt: String,connectionDisplayName: String,updatedAt: String) {
+    init(displayName: String, secondaryID: String, createdAt: String, onlineModel: String, primaryId: String, updatedAt: String, fullName: String, connectionID: String, deviceModel: String, tenantName: String, tenantID: String, oloid: String, status: String, connectionDisplayName: String) {
         
-        self.connectionID = connectionID
-        self.desc = description
-        self.onlineModel = onlineModel
+        self.displayName = displayName
+        self.secondaryID = secondaryID
         self.createdAt = createdAt
-        self.connectionDisplayName = connectionDisplayName
+        self.onlineModel = onlineModel
+        self.primaryId = primaryId
         self.updatedAt = updatedAt
+        self.fullName = fullName
+        self.connectionID = connectionID
+        self.deviceModel = deviceModel
+        self.tenantName = tenantName
+        self.tenantID = tenantID
+        self.oloid = oloid
+        self.status = status
+        self.connectionDisplayName = connectionDisplayName
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
-        let connectionID = aDecoder.decodeObject(forKey: "connectionID") as! String
-        let description = aDecoder.decodeObject(forKey: "description") as! String
-        let onlineModel = aDecoder.decodeObject(forKey: "onlineModel") as! String
-        let createdAt = aDecoder.decodeObject(forKey: "createdAt") as! String
-        let connectionDisplayName = aDecoder.decodeObject(forKey: "connectionDisplayName") as! String
-        let updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as! String
+        let displayName = aDecoder.decodeObject(forKey: "displayName") as? String
+        let secondaryID = aDecoder.decodeObject(forKey: "secondaryID") as? String
+        let createdAt = aDecoder.decodeObject(forKey: "createdAt") as? String
+        let onlineModel = aDecoder.decodeObject(forKey: "onlineModel") as? String
+        let primaryId = aDecoder.decodeObject(forKey: "primaryId") as? String
+        let updatedAt = aDecoder.decodeObject(forKey: "updatedAt") as? String
+        let fullName = aDecoder.decodeObject(forKey: "fullName") as? String
+        let connectionID = aDecoder.decodeObject(forKey: "connectionID") as? String
+        let deviceModel = aDecoder.decodeObject(forKey: "deviceModel") as? String
+        let tenantName = aDecoder.decodeObject(forKey: "tenantName") as? String
+        let tenantID = aDecoder.decodeObject(forKey: "tenantID") as? String
+        let oloid = aDecoder.decodeObject(forKey: "oloid") as? String
+        let status = aDecoder.decodeObject(forKey: "status") as? String
+        let connectionDisplayName = aDecoder.decodeObject(forKey: "connectionDisplayName") as? String
         
-        self.init(connectionID: connectionID, description: description, onlineModel: onlineModel,createdAt: createdAt, connectionDisplayName: connectionDisplayName, updatedAt: updatedAt)
+        self.init(displayName: displayName ?? "", secondaryID: secondaryID ?? "", createdAt: createdAt ?? "", onlineModel: onlineModel ?? "", primaryId: primaryId ?? "", updatedAt:updatedAt ?? "", fullName: fullName ?? "", connectionID:connectionID ?? "", deviceModel: deviceModel ?? "", tenantName: tenantName ?? "", tenantID: tenantID ?? "", oloid:oloid ?? "", status:status ?? "", connectionDisplayName:connectionDisplayName ?? "")
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(connectionID, forKey: "connectionID")
-        coder.encode(desc, forKey: "description")
-        coder.encode(onlineModel, forKey: "onlineModel")
+        coder.encode(displayName, forKey: "displayName")
+        coder.encode(secondaryID, forKey: "secondaryID")
         coder.encode(createdAt, forKey: "createdAt")
-        coder.encode(connectionDisplayName, forKey: "connectionDisplayName")
+        coder.encode(onlineModel, forKey: "onlineModel")
+        coder.encode(primaryId, forKey: "primaryId")
         coder.encode(updatedAt, forKey: "updatedAt")
+        coder.encode(fullName, forKey: "fullName")
+        coder.encode(connectionID, forKey: "connectionID")
+        coder.encode(deviceModel, forKey: "deviceModel")
+        coder.encode(tenantName, forKey: "tenantName")
+        coder.encode(tenantID, forKey: "tenantID")
+        coder.encode(oloid, forKey: "oloid")
+        coder.encode(status, forKey: "status")
+        coder.encode(connectionDisplayName, forKey: "connectionDisplayName")
+        
     }
 }
-
-
 
 // Currently not in use
 struct ResultData: Decodable {

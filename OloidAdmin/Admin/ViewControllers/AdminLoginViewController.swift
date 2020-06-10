@@ -57,11 +57,13 @@ class AdminLoginViewController: UIViewController {
             nameTextField.roundedWithBlueBorder()
         }
         
+        self.hideKeyboardWhenTap()
+        
 //        self.nameTextField.text = "uber"
 //        self.emailTextField.text = "shankar@oloid.ai"
 //        self.passwordTextField.text = "Oloid@123"
-//        loginButton.alpha = 1.0
-//        loginButton.isUserInteractionEnabled = true
+        loginButton.alpha = 1.0
+        loginButton.isUserInteractionEnabled = true
 
         // Do any additional setup after loading the view.
     }
@@ -76,9 +78,9 @@ class AdminLoginViewController: UIViewController {
 
          super.viewWillDisappear(animated)
 
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
 
     }
     
@@ -105,12 +107,8 @@ class AdminLoginViewController: UIViewController {
                         self.activityIndicator.stopAnimating()
                         if error == nil {
                             
-                            let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
-                            let vc = storyBoard.instantiateViewController(withIdentifier:"Tabbar")
-                                                        
-                            //vc.idToken = response
-                            
-                            self.navigationController?.pushViewController(vc, animated: true)
+                            self.showListScreenIfAlreadyPaired()
+                        
                         }
                         else {
                             self.nameTextField.roundedWithBlueBorder()
@@ -129,6 +127,71 @@ class AdminLoginViewController: UIViewController {
         let emailRegEx = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{1,4}$"
         let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
+    }
+    
+    func showListScreenIfAlreadyPaired() {
+        
+        let defaults = UserDefaults.standard
+
+        var appName: String?
+        if let userData = defaults.object(forKey: "endpoint") as? Data {
+            if let endpoint = NSKeyedUnarchiver.unarchiveObject(with: userData) as? Endpoint {
+                appName = endpoint.applicationName
+                
+                let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+                let vc = storyBoard.instantiateViewController(withIdentifier:"Tabbar") as! UITabBarController
+                
+                vc.selectedIndex = 0
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else {
+            self.callListApplicationsAPI()
+        }
+    }
+    
+    func callListApplicationsAPI() {
+        
+        activityIndicator.startAnimating()
+        self.warningView.isHidden = true
+        
+        adminAPIManager.getListApplications() { (responseArray, idArray, error) in
+            
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                if error == nil {
+                    if responseArray.count != 0 {
+                        
+                        //self.appIdArray = idArray
+                        
+                        let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+                          let vc = storyBoard.instantiateViewController(withIdentifier:"Tabbar") as! UITabBarController
+                        
+                        let settingsVC = vc.viewControllers?[2] as! AdminSettingsViewController
+                        settingsVC.appIdArray = idArray
+                        settingsVC.appNameArray = responseArray
+                        
+                          vc.selectedIndex = 2
+                        
+                          //vc.idToken = response
+                          
+                          self.navigationController?.pushViewController(vc, animated: true)
+                        
+//                        let storyBoard = UIStoryboard.init(name: "Admin", bundle:.main)
+//                        let vc = storyBoard.instantiateViewController(withIdentifier:"AdminListTypeViewController") as! AdminListTypeViewController
+//                        vc.delegate = self
+//                        vc.listArray = responseArray
+//                        self.present(vc, animated: true, completion: nil)
+                        
+                    }
+                }
+                else {
+                    // show error
+                    self.warningView.isHidden = false
+                    self.errorLabel.text = error?.localizedDescription
+                }
+            }
+        }
     }
 
 }

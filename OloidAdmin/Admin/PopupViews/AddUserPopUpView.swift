@@ -40,8 +40,6 @@ class AddUserPopUpview: UIView, UITextFieldDelegate {
     static func instantiate() -> AddUserPopUpview {
         
         let view = UINib(nibName: "AddUserPopUpView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! AddUserPopUpview
-        
-        
         return view
     }
     
@@ -96,7 +94,7 @@ class AddUserPopUpview: UIView, UITextFieldDelegate {
                // print("ERROR")
             }
         }
-        
+                
         if isUserNumberIsValid && isDisplayNameIsValid && !text.isEmpty && containWhiteSpace && collectionTextField.text != ""
         {
             nextButton.isEnabled = true
@@ -120,6 +118,8 @@ class AddUserPopUpview: UIView, UITextFieldDelegate {
                 nextButton.alpha = 0.5
             }
         }
+        
+        
         return valueToBeReturned
     }
     

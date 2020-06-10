@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0E832C2490D8AB0010F722 /* CICOFaceListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E832B2490D8AB0010F722 /* CICOFaceListVC.swift */; };
 		2DE9E54A248DFB8A004D2911 /* AdminAddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E549248DFB8A004D2911 /* AdminAddUserViewController.swift */; };
 		2DE9E54C248DFB8F004D2911 /* AdminUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E54B248DFB8F004D2911 /* AdminUserProfileViewController.swift */; };
 		2DE9E560248DFF44004D2911 /* FaceErrorPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE9E559248DFF44004D2911 /* FaceErrorPopUpView.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D0E832B2490D8AB0010F722 /* CICOFaceListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CICOFaceListVC.swift; sourceTree = "<group>"; };
 		2DE9E549248DFB8A004D2911 /* AdminAddUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminAddUserViewController.swift; sourceTree = "<group>"; };
 		2DE9E54B248DFB8F004D2911 /* AdminUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUserProfileViewController.swift; sourceTree = "<group>"; };
 		2DE9E559248DFF44004D2911 /* FaceErrorPopUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceErrorPopUpView.swift; sourceTree = "<group>"; };
@@ -265,9 +267,10 @@
 		2DEB196524815F4A0047ACEB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2DEB196624815F4A0047ACEB /* AdminListTypeViewController.swift */,
-				2DEB196724815F4A0047ACEB /* AdminSettingsViewController.swift */,
+				2D0E832B2490D8AB0010F722 /* CICOFaceListVC.swift */,
 				2DEB196824815F4A0047ACEB /* AdminLoginViewController.swift */,
+				2DEB196724815F4A0047ACEB /* AdminSettingsViewController.swift */,
+				2DEB196624815F4A0047ACEB /* AdminListTypeViewController.swift */,
 				2DE9E549248DFB8A004D2911 /* AdminAddUserViewController.swift */,
 				2DE9E54B248DFB8F004D2911 /* AdminUserProfileViewController.swift */,
 			);
@@ -295,8 +298,8 @@
 		2DEB196F24815F4A0047ACEB /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				2DEB19822484EE440047ACEB /* AdminConstants.swift */,
 				2DEB197024815F4A0047ACEB /* AdminUtility.swift */,
+				2DEB19822484EE440047ACEB /* AdminConstants.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				2DE9E565248DFF44004D2911 /* SuccessPopUpView.swift in Sources */,
 				2DEB197524815F4A0047ACEB /* AdminListTypeViewController.swift in Sources */,
 				2DEB197424815F4A0047ACEB /* AdminAPIManager.swift in Sources */,
+				2D0E832C2490D8AB0010F722 /* CICOFaceListVC.swift in Sources */,
 				2DEB197824815F4A0047ACEB /* Data.swift in Sources */,
 				2DEB193124815ED20047ACEB /* ContentView.swift in Sources */,
 				2DEB197924815F4A0047ACEB /* ServerPath.swift in Sources */,
